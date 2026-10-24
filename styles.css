@@ -2059,21 +2059,21 @@ tbody tr:nth-child(5) .card-type-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
   width: fit-content;
-  min-height: 40px;
-  margin: 24px 0 0 auto;
-  padding: 0 16px;
-  border-radius: 20px;
+  min-height: 30px;
+  margin: 16px 0 0 auto;
+  padding: 0 10px;
+  border-radius: 15px;
   background: var(--secondary-container);
   color: var(--on-secondary-container);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
-  line-height: 20px;
+  line-height: 16px;
 }
 
 .friend-card-action .material-symbols-rounded {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .friend-card p {
