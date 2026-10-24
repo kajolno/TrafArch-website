@@ -361,7 +361,7 @@ h1, h2, h3 {
   z-index: 1;
 }
 
-.btn > :not(.material-symbols-rounded) {
+.btn > :not(.material-symbols-rounded):not(.ripple-wave) {
   position: relative;
   z-index: 1;
 }
