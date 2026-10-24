@@ -1995,6 +1995,12 @@ tbody tr:nth-child(5) .card-type-icon {
   font-size: 11.5px;
 }
 
+.friends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 360px));
+  gap: 24px;
+}
+
 .friend-card {
   position: relative;
   isolation: isolate;
