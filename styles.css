@@ -560,19 +560,14 @@ h1, h2, h3 {
 
 .hero-actions {
   display: grid;
-  grid-template-columns: max-content max-content;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   margin-top: 30px;
 }
 
-.hero-actions > a:nth-child(2) {
-  grid-column: 1;
-  grid-row: 2;
-}
-
-.hero-actions .hero-guide {
-  grid-column: 2;
-  grid-row: 1;
+.hero-actions .btn {
+  min-width: 0;
+  padding-inline: 10px;
 }
 
 .hero-chips {
@@ -2645,15 +2640,18 @@ footer {
   }
 
   .hero-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    gap: 6px;
     margin-top: 24px;
   }
 
   .hero-actions .btn {
-    width: 100%;
-    flex: none;
+    padding-inline: 4px;
+    gap: 3px;
+    font-size: 12px;
+  }
+
+  .hero-actions .btn .material-symbols-rounded {
+    font-size: 16px;
   }
 
   .hero-disclaimer {
