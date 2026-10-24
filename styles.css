@@ -1996,44 +1996,82 @@ tbody tr:nth-child(5) .card-type-icon {
 }
 
 .friend-card {
+  position: relative;
+  isolation: isolate;
   display: block;
   width: 100%;
-  max-width: 380px;
-  padding: 28px;
+  max-width: 360px;
+  padding: 16px;
   border: 1px solid var(--outline-variant);
-  border-radius: 24px;
-  background: var(--surface-container);
+  border-radius: 12px;
+  background: var(--surface);
   color: var(--on-surface);
   text-decoration: none;
 }
 
-.friend-card:hover,
+.friend-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--on-surface);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+}
+
+.friend-card:hover::before {
+  opacity: 0.08;
+}
+
+.friend-card:focus-visible::before,
+.friend-card:active::before {
+  opacity: 0.12;
+}
+
 .friend-card:focus-visible {
-  border-color: var(--primary);
-  background: var(--primary-container);
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
 }
 
 .friend-card img {
   display: block;
-  width: 96px;
-  height: 96px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
-  border-radius: 22px;
-  margin-bottom: 24px;
+  border-radius: 16px;
+  margin-bottom: 16px;
 }
 
 .friend-card h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 0 12px;
+  gap: 16px;
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.friend-card h3 .material-symbols-rounded {
+  color: var(--on-surface-variant);
   font-size: 24px;
 }
 
 .friend-card p {
   margin: 0;
   color: var(--on-surface-variant);
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .friend-card::before {
+    transition: none;
+  }
 }
 
 footer {
