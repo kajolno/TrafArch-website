@@ -1995,6 +1995,47 @@ tbody tr:nth-child(5) .card-type-icon {
   font-size: 11.5px;
 }
 
+.friend-card {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  padding: 28px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 24px;
+  background: var(--surface-container);
+  color: var(--on-surface);
+  text-decoration: none;
+}
+
+.friend-card:hover,
+.friend-card:focus-visible {
+  border-color: var(--primary);
+  background: var(--primary-container);
+}
+
+.friend-card img {
+  display: block;
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  border-radius: 22px;
+  margin-bottom: 24px;
+}
+
+.friend-card h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+.friend-card p {
+  margin: 0;
+  color: var(--on-surface-variant);
+  line-height: 1.7;
+}
+
 footer {
   padding: 64px 0 28px;
   border-top: 1px solid var(--outline-variant);
