@@ -2001,10 +2001,10 @@ tbody tr:nth-child(5) .card-type-icon {
   display: block;
   width: 100%;
   max-width: 360px;
-  padding: 16px;
-  border: 1px solid var(--outline-variant);
+  padding: 24px;
+  border: 0;
   border-radius: 12px;
-  background: var(--surface);
+  background: var(--surface-container);
   color: var(--on-surface);
   text-decoration: none;
 }
@@ -2055,9 +2055,25 @@ tbody tr:nth-child(5) .card-type-icon {
   line-height: 28px;
 }
 
-.friend-card h3 .material-symbols-rounded {
-  color: var(--on-surface-variant);
-  font-size: 24px;
+.friend-card-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: fit-content;
+  min-height: 40px;
+  margin: 24px 0 0 auto;
+  padding: 0 16px;
+  border-radius: 20px;
+  background: var(--secondary-container);
+  color: var(--on-secondary-container);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.friend-card-action .material-symbols-rounded {
+  font-size: 18px;
 }
 
 .friend-card p {
