@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TrafArch Android 应用隐私与个人信息保护政策：卡片读取、本地存档、权限、日志、数据分享、第三方服务与用户权利。">
+  <meta name="theme-color" content="#F9F9FF" id="meta-theme">
+  <title>隐私与个人信息保护政策 — TrafArch</title>
+  <link rel="icon" type="image/png" href="assets/app-icon.png">
+  <script>try{var t=localStorage.getItem('trafarch-theme');document.documentElement.dataset.theme=t||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
+  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .policy-header { border-bottom: 1px solid var(--outline-variant); padding: 20px 0; }
+    .policy-header .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .policy-home { color: var(--primary); font-size: 14px; }
+    .policy-main { max-width: 880px; margin: 0 auto; padding: 64px 24px 32px; }
+    .policy-main h1 { font-size: clamp(28px, 5vw, 42px); line-height: 1.4; margin: 12px 0 20px; letter-spacing: -.03em; }
+    .policy-meta { color: var(--on-surface-variant); font-size: 14px; }
+    .policy-main p, .policy-main li { line-height: 1.95; overflow-wrap: anywhere; }
+    .policy-main p { margin: 14px 0; }
+    .policy-main ul { padding-left: 24px; list-style: disc; }
+    .policy-main li { margin: 9px 0; }
+    .policy-main h2 { font-size: 23px; margin: 42px 0 16px; scroll-margin-top: 24px; }
+    .policy-main h3 { font-size: 17px; margin: 24px 0 10px; }
+    .policy-main a { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
+    .policy-intro, .policy-toc { background: var(--surface-container); border: 1px solid var(--outline-variant); border-radius: 20px; padding: 20px 24px; margin: 28px 0; }
+    .policy-toc ol { padding-left: 24px; }
+    .policy-footer { padding: 0 0 32px; background: transparent; }
+    @media (max-width: 600px) { .policy-main { padding-top: 36px; } .policy-intro, .policy-toc { padding: 16px 20px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="policy-header">
+    <div class="container">
+      <a class="brand" href="./" aria-label="TrafArch 首页"><img src="assets/app-icon.png" alt="" width="38" height="38"><span class="brand-name">TrafArch</span></a>
+      <a class="policy-home" href="./">返回首页</a>
+    </div>
+  </header>
+  <main class="policy-main" id="main">
+    <div class="policy-meta">TrafArch · Android 应用</div>
+    <h1>隐私与个人信息保护政策</h1>
+    <p class="policy-meta">更新日期：2026 年 10 月 26 日 · 生效日期：2026 年 10 月 26 日</p>
+    <p>本政策适用于 kajolno 及 TrafArch 项目维护者（以下简称“我们”）提供的 TrafArch Android 应用，包括 TrafArch Alpha 测试版本，Android 应用包名为 com.kajolno.TrafArch。本政策说明应用如何读取、存储、使用和对外提供个人信息，以及您管理这些信息的方式。第三方网站和服务的独立处理行为另受其自身政策约束。</p>
+    <div class="policy-intro">
+      <p><strong>请特别留意：</strong>卡片可能包含完整卡号、姓名、证件号码、金融账户及出行记录等敏感个人信息。原始通信记录、日志和导出文件也可能包含这些信息。请只读取您本人或已获得合法授权的卡片、乘车码，并在导出或反馈前检查内容。</p>
+      <p>核心读卡、解析和存档在设备本地进行，不需要注册 TrafArch 账户；但这不代表应用在所有情况下均不联网。更新检查、第三方网页和可能启用的统计 SDK，以及系统备份，具有不同的数据处理边界，详见下文。本政策本身不替代法律要求的单独同意或权限授权。</p>
+    </div>
+    <nav class="policy-toc" aria-label="政策目录">
+      <strong>目录</strong>
+      <ol>
+        <li><a href="#data">我们处理的信息及用途</a></li>
+        <li><a href="#permissions">设备权限</a></li>
+        <li><a href="#sharing">分享、第三方服务与接收方</a></li>
+        <li><a href="#storage">存储、保留与安全</a></li>
+        <li><a href="#rights">您的选择与个人信息权利</a></li>
+        <li><a href="#children">未成年人保护</a></li>
+        <li><a href="#changes">政策变更</a></li>
+        <li><a href="#contact">联系我们</a></li>
+      </ol>
+    </nav>
+    <section aria-labelledby="data">
+      <h2 id="data">一、我们处理的信息及用途</h2>
+      <h3>1. NFC 卡片读取与展示</h3>
+      <p>您发起读取并将卡片靠近设备时，应用通过 NFC 读取卡片允许访问的信息，用于识别卡种、显示卡片状态、余额和交易、解析线路站点及分析读取兼容性。具体范围取决于卡片体系和卡片实际返回的数据：</p>
+      <ul>
+        <li>卡片标识和协议数据：UID、技术类型、协议参数、FeliCa IDm、系统码、原始通信响应及读取时间。这些是卡片信息，不等同于手机设备标识。</li>
+        <li>交通卡信息：卡号或应用序列号、发卡机构、城市、卡种、有效期、余额、币种、交易时间、金额、类型、终端号，以及可读取的线路、站点、进出站、上下车、车辆和其他行程信息。部分卡片还可能返回姓名、证件号码、证件类型和职工标志。</li>
+        <li>银行卡可读信息：卡号（PAN）、持卡人姓名、有效期、生效日期、二磁道相关数据、服务代码、交易计数及原始响应。页面仅显示尾号不代表底层数据或原始通信已脱敏。</li>
+      </ul>
+      <p>线路和站点识别主要使用本地参考数据，不需要获取手机 GPS 位置；但卡片交易记录本身可能反映您的出行轨迹。应用只提供读取与分析，不提供充值、支付或修改卡片功能。</p>
+      <h3>2. 乘车二维码与图片</h3>
+      <p>您主动扫描二维码、选择图片或输入 HEX/Base64 内容时，应用在本地解析图像或输入内容。乘车码可能包含支付账号、用户账号、发卡方或平台代码、账户类型、消费限额、公钥或证书、授权期限、生成时间及自定义数据。应用业务代码没有将所选图片或二维码内容上传给开发者的流程。</p>
+      <p>二维码解析结果保存在当前控制器内存中，可主动清除；选择的整张图片可能被复制至应用私有缓存，下一次选图时清理旧文件。清除解析结果不等于立即删除该图片缓存。</p>
+      <h3>3. 本地卡片档案与偏好</h3>
+      <p>您手动保存卡片，或开启默认关闭的自动保存功能后，应用会在本地数据库保存支持建档的交通卡信息、自定义名称、读取时间、余额、交易和行程、历史读取批次、解析结果、原始记录及通信帧，供后续查看和比较。卡片标识中的卡号不是匿名化数据。主题、自动保存与日志开关等设置也存于本机。并非所有卡种都支持建档。</p>
+      <h3>4. 运行日志与故障诊断</h3>
+      <p>文件运行日志默认关闭。您开启后，应用在本地记录操作时间、读取阶段、异常及发送/接收的完整通信 HEX，用于排查兼容性和故障。日志可能包含可还原的卡号、身份、账户、交易与行程信息，未统一脱敏。关闭日志仅停止后续写入，不会清除已有日志。读取期间还会在内存保留通信轨迹；Debug 构建可能向 Android 系统调试日志写入原始通信，不受文件日志开关控制。</p>
+      <h3>5. 更新与网络连接信息</h3>
+      <p>配置了更新地址的版本会在启动后检查更新，您也可以手动检查。应用通过 HTTPS 获取版本清单，在本地比较版本；该请求不主动附加卡片内容、日志或 TrafArch 账户信息。更新服务器及其托管或内容分发服务商仍可接触 IP 地址、访问时间、请求路径等网络连接信息。未配置更新地址的版本不发起该检查。参考数据包下载由用户触发，下载后在本地校验和存储；前往安装包下载页会打开外部应用或浏览器。</p>
+    </section>
+    <section aria-labelledby="permissions">
+      <h2 id="permissions">二、设备权限</h2>
+      <ul>
+        <li><strong>NFC：</strong>用于读取近距离卡片。您可以通过系统 NFC 开关控制可用性。</li>
+        <li><strong>相机：</strong>用于主动扫码；可拒绝或在系统设置撤回，拒绝后无法使用相机扫码，但不影响 NFC 读卡。</li>
+        <li><strong>图片选择：</strong>通过系统图片选择器或文件选择界面访问您选定的图片，而非主动扫描全部相册。</li>
+        <li><strong>存储写入：</strong>仅 Android 9 及以下版本导出至公共下载目录时申请；Android 10 及以上通过系统 MediaStore 导出，不为此申请旧式存储权限。</li>
+        <li><strong>网络：</strong>用于更新、外部页面和第三方 SDK 可能产生的联网。Android 网络权限通常不是逐次弹窗授权的权限。</li>
+      </ul>
+      <p>当前应用业务功能不主动申请通讯录、短信、麦克风或手机定位权限。第三方依赖可能通过合并清单增加声明，实际安装版本的系统权限页面为准；这不代表应用使用这些权限读取卡片以外的所有数据。</p>
+    </section>
+    <section aria-labelledby="sharing">
+      <h2 id="sharing">三、分享、第三方服务与接收方</h2>
+      <p>当前卡片读取与档案功能没有自动向开发者上传卡片库或原始日志的业务流程。以下操作和服务可能让信息离开应用私有空间；我们不会把本地处理等同于“任何情况下都不分享”。</p>
+      <h3>1. 您主动导出、复制或发送</h3>
+      <p>导出档案或日志时，应用将文本写入设备公共 Download（下载）目录。档案可能包含完整卡号、余额、交易、行程、历史批次及原始数据；日志导出还包含应用版本和导出时间。复制原始 HEX 会写入系统剪贴板。导出本身不自动发送给开发者，但文件管理器、获得相应授权的其他应用、系统剪贴板服务以及您随后选择的发送对象可能接触这些内容。请在分享前删除不必要的敏感信息，并妥善管理外部文件。</p>
+      <h3>2. 反馈问卷、QQ 与浏览器</h3>
+      <p>您打开应用内反馈问卷时，会通过外部浏览器组件访问飞书表单；打开交流群入口时，会访问 QQ 页面并可能唤起 QQ。接收方类型包括飞书或 QQ 平台服务提供者、浏览器提供者、表单管理者、项目维护者，以及您主动发消息的群成员或其他收件人。</p>
+      <p>应用打开这些入口时只传递页面地址，不自动附加卡片或日志。您填写的内容、上传的附件及账号资料由相应服务按其规则处理；访问页面还可能涉及 IP 地址、浏览器信息、Cookie 和登录状态。请勿在公开群或公开问题区提交完整卡号、身份证件、银行信息或未脱敏日志。我们收到您主动提供的反馈后，仅应在处理问题、回复请求及必要的故障分析范围内使用。</p>
+      <h3>3. Firebase Analytics（Google）</h3>
+      <p>当前 Android 工程包含 Google Firebase Analytics 统计 SDK 依赖，用途为应用使用情况和稳定运行相关的统计分析，而不是完成 NFC 读取。若发布构建完成 Firebase 配置并启用该 SDK，它可能自动采集应用实例标识、应用启动及交互事件、设备与系统信息，并向 Google/Firebase 服务发送；还可能依据 SDK 配置和设备设置处理广告标识及由 IP 推导的粗略地区信息。此处所述是 SDK 可能的数据范围，不代表已经通过当前发布安装包的运行抓包逐项确认。</p>
+      <p>当前业务代码没有将卡号、交易、二维码或原始读卡日志设置为统计事件发送的流程，但也未提供应用内统计退出开关，不能据此承诺“没有统计采集”。SDK 在您安装版本中是否成功初始化、具体字段、保存期限与处理地区，取决于构建配置和 Firebase 服务设置；相关信息仍需按实际发布版本核实。请通过本政策的联系方式询问适用版本的数据处理情况。</p>
+      <h3>4. 扫码组件及基础组件</h3>
+      <p>扫码使用 mobile_scanner / Google ML Kit，并有本地 ZXing 解码路径；应用业务代码在设备端处理图像，没有主动上传扫码图片的接口。底层 SDK 的模型获取或服务诊断行为受其版本及配置影响，不能仅根据本地解码断言其完全不联网。Drift/SQLite 用于本地存储，系统文件接口用于缓存与导出，WebView、AndroidX Browser 和 url_launcher 用于打开网页；网页内第三方服务按其自身规则处理数据。</p>
+      <h3>5. 系统备份、托管及法定义务</h3>
+      <p>应用未明确关闭 Android 系统备份。根据系统版本、设备厂商和您的设置，系统备份或换机服务可能将私有数据库、设置及日志备份至系统服务商或设备厂商管理的存储空间。更新和下载请求还会由相应服务器运营者、托管商或内容分发商处理。为履行适用法律、响应合法有效的法定要求而必须提供信息时，应限于实际持有且必要的范围，并依法履行相应程序。</p>
+      <p><strong>跨境提示：</strong>本机档案没有开发者自建云同步流程，但 Google/Firebase、外部网站、更新托管和系统备份可能在您所在国家或地区以外处理数据。不能保证这些服务均在中国境内处理。实际地区、接收主体与保存期限需要结合具体版本及服务配置确认；涉及依法需告知或单独同意的跨境处理，应另行履行相应义务，本段提示不等同于您已作出同意。</p>
+    </section>
+    <section aria-labelledby="storage">
+      <h2 id="storage">四、存储、保留与安全</h2>
+      <p>应用档案、设置及文件日志存于 Android 应用私有目录，主要依赖操作系统的应用隔离和设备安全措施；当前不承诺对档案数据库进行应用层加密。请保持设备系统更新，设置锁屏保护，谨慎使用已 Root 的设备或 Debug 构建。</p>
+      <ul>
+        <li>档案没有固定自动过期时间，可持续保留至您删除或清除应用数据；重复保存可能累积历史读取批次。</li>
+        <li>文件日志超过约 512 KiB 时会尝试保留最近 500 行，但这不是严格文件大小上限，也不是固定保存期限。</li>
+        <li>图片缓存、系统备份、导出文件和第三方服务副本各有独立生命周期，不随某一条档案删除而全部消失。</li>
+        <li>反馈接收方、更新托管商、统计及系统备份服务的服务器保留期限不由本地数据库设置控制；目前不能在本政策中确认统一期限。</li>
+      </ul>
+      <p>没有任何存储或传输方式能保证绝对安全。发生涉及我们实际控制的个人信息安全事件时，我们将按适用法律采取处置措施，并在必要时履行通知义务。我们不会将常规数据库删除描述为不可恢复的安全擦除。</p>
+    </section>
+    <section aria-labelledby="rights">
+      <h2 id="rights">五、您的选择与个人信息权利</h2>
+      <ul>
+        <li><strong>访问、更正与导出：</strong>您可以查看读取结果及保存的档案，修改档案名称，并导出支持导出的记录。卡片原始信息由发卡方管理，应用不能修改卡片内容。</li>
+        <li><strong>删除档案：</strong>在卡片页面删除档案会一并删除该卡的本地读取批次等关联记录，但不会删除独立日志、导出件、剪贴板、系统备份或第三方已收到的内容。</li>
+        <li><strong>停止保存或记录：</strong>关闭自动保存或日志开关仅影响后续行为。当前没有独立的日志清空入口；如需删除全部私有数据，可使用 Android 设置中的“清除存储空间/应用数据”。操作前请确认是否需要备份。</li>
+        <li><strong>清理图片及外部副本：</strong>可通过系统清除应用缓存处理缓存图片；在文件管理器中另行删除导出文件，并在系统或服务商设置中管理备份。清除二维码结果仅清除当前解析状态。</li>
+        <li><strong>权限与联网选择：</strong>可撤回相机权限、关闭 NFC，不使用反馈与下载入口。拒绝更新下载不等于阻止此前的更新检查；当前没有启动更新检查或 Firebase 统计的应用内独立关闭开关，可结合设备网络控制管理联网或停止使用相应版本。</li>
+        <li><strong>卸载：</strong>卸载通常删除应用私有数据，但公共下载目录文件及系统或第三方备份需单独处理，系统恢复也可能恢复曾备份的信息。</li>
+      </ul>
+      <p>对于您主动提交并由我们持有的信息，您可以请求访问、复制、更正、删除、限制处理或撤回有关同意，并提出隐私投诉。我们可能需要以必要且适当的方式核验请求身份，避免向他人披露信息；请勿为核验主动发送身份证件原件或完整银行卡数据。我们将依据适用法律处理并说明无法执行的原因。撤回同意不影响撤回前依法进行的处理。应用不设 TrafArch 用户账号，因此没有账户注销流程；第三方账户应向对应服务申请注销。</p>
+    </section>
+    <section aria-labelledby="children">
+      <h2 id="children">六、未成年人保护</h2>
+      <p>未成年人应在监护人指导下使用。未满十四周岁的儿童读取或分享涉及本人个人信息的卡片、乘车码前，应取得监护人同意；监护人应特别关注学生卡中的姓名、证件与出行信息，避免儿童在反馈或群聊中公开这些数据。我们不要求提供年龄以完成基本读卡。监护人如发现儿童向我们提交了不适当的个人信息，可以联系项目维护者请求处理。</p>
+    </section>
+    <section aria-labelledby="changes">
+      <h2 id="changes">七、政策变更</h2>
+      <p>我们会根据功能、第三方组件和数据处理方式变化更新本政策，并在此页面标明更新日期。涉及处理目的、信息类型、接收方或用户权利的重大变化，应通过适当方式提示；依法需要重新或单独征得同意的，不以政策网页更新或继续使用代替。本政策为标准 HTML 文本页面，不要求登录、下载文件或安装 PDF 阅读器。</p>
+    </section>
+    <section aria-labelledby="contact">
+      <h2 id="contact">八、联系我们</h2>
+      <p>如对 TrafArch 的个人信息处理有疑问，或需要提出用户权利请求，请通过应用内“反馈”入口，或使用与应用相同的<a href="https://kajolno1.feishu.cn/share/base/form/shrcnHyB4j9cSYWcxpGrezjeg1e" target="_blank" rel="noopener noreferrer">TrafArch 反馈表单</a>联系 kajolno / TrafArch 项目维护者。</p>
+      <p>建议说明请求类型、应用版本及必要的问题背景；反馈表单本身由第三方服务承载，请先查看该服务的隐私提示，仅提交处理请求所需的信息。涉及第三方平台独立保存的数据，还需通过其提供的权利请求渠道处理。</p>
+    </section>
+  </main>
+  <footer class="policy-footer">
+    <div class="container"><div class="footer-bottom"><a class="footer-top-link" href="./">返回首页</a><p>© 2026 TrafArch</p></div></div>
+  </footer>
+</body>
+</html>
