@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy and Personal Information Protection Policy for the TrafArch Android app: card reading, local archives, permissions, logs, data sharing, third-party services, and your rights.">
+  <meta name="theme-color" content="#F9F9FF" id="meta-theme">
+  <title>Privacy and Personal Information Protection Policy — TrafArch</title>
+  <link rel="icon" type="image/png" href="assets/app-icon.png">
+  <script>try{var t=localStorage.getItem('trafarch-theme');document.documentElement.dataset.theme=t||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
+  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .policy-header { border-bottom: 1px solid var(--outline-variant); padding: 20px 0; }
+    .policy-header .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .policy-home { color: var(--primary); font-size: 14px; }
+    .policy-main { max-width: 880px; margin: 0 auto; padding: 64px 24px 32px; }
+    .policy-main h1 { font-size: clamp(28px, 5vw, 42px); line-height: 1.4; margin: 12px 0 20px; letter-spacing: -.03em; }
+    .policy-meta { color: var(--on-surface-variant); font-size: 14px; }
+    .policy-main p, .policy-main li { line-height: 1.95; overflow-wrap: anywhere; }
+    .policy-main p { margin: 14px 0; }
+    .policy-main ul { padding-left: 24px; list-style: disc; }
+    .policy-main li { margin: 9px 0; }
+    .policy-main h2 { font-size: 23px; margin: 42px 0 16px; scroll-margin-top: 24px; }
+    .policy-main h3 { font-size: 17px; margin: 24px 0 10px; }
+    .policy-main a { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
+    .policy-intro, .policy-toc { background: var(--surface-container); border: 1px solid var(--outline-variant); border-radius: 20px; padding: 20px 24px; margin: 28px 0; }
+    .policy-toc ol { padding-left: 24px; }
+    .policy-footer { padding: 0 0 32px; background: transparent; }
+    @media (max-width: 600px) { .policy-main { padding-top: 36px; } .policy-intro, .policy-toc { padding: 16px 20px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="policy-header">
+    <div class="container">
+      <a class="brand" href="./" aria-label="TrafArch home"><img src="assets/app-icon.png" alt="" width="38" height="38"><span class="brand-name">TrafArch</span></a>
+      <a class="policy-home" href="./">Back to home</a>
+    </div>
+  </header>
+  <main class="policy-main" id="main">
+    <nav class="policy-languages" aria-label="Policy language"><a href="privacy.html" lang="zh-CN">简体中文</a><a href="privacy-zh-Hant.html" lang="zh-Hant">繁体中文</a><a href="privacy-en.html" lang="en-US" aria-current="page">English(US)</a></nav>
+    <div class="policy-meta">TrafArch · Android App</div>
+    <h1>Privacy and Personal Information Protection Policy</h1>
+    <p class="policy-meta">Last updated: October 26, 2026 · Effective date: October 26, 2026</p>
+    <p>This policy applies to the TrafArch Android app provided by kajolno and the TrafArch project maintainers (referred to as “we” or “us”), including TrafArch Alpha test versions. The Android app package name is com.kajolno.TrafArch. This policy explains how the app reads, stores, uses, and provides personal information to others, and how you can manage that information. Independent processing by third-party websites and services is governed separately by their own policies.</p>
+    <div class="policy-intro">
+      <p><strong>Please pay particular attention:</strong> Cards may contain sensitive personal information, such as full card numbers, names, identification document numbers, financial accounts, and travel records. Raw communication records, logs, and exported files may also contain this information. Read only cards and transit codes that belong to you or that you are legally authorized to read, and review the contents before exporting them or submitting feedback.</p>
+      <p>Core card reading, parsing, and archiving take place locally on your device and do not require a TrafArch account. However, this does not mean that the app never connects to the internet under any circumstances. Update checks, third-party web pages, analytics SDKs that may be enabled, and system backups have different data processing boundaries, as detailed below. This policy itself does not replace separate consent or permission authorization required by law.</p>
+    </div>
+    <nav class="policy-toc" aria-label="Policy table of contents">
+      <strong>Contents</strong>
+      <ol>
+        <li><a href="#data">Information We Process and Its Purposes</a></li>
+        <li><a href="#permissions">Device Permissions</a></li>
+        <li><a href="#sharing">Sharing, Third-Party Services, and Recipients</a></li>
+        <li><a href="#storage">Storage, Retention, and Security</a></li>
+        <li><a href="#rights">Your Choices and Personal Information Rights</a></li>
+        <li><a href="#children">Protection of Minors</a></li>
+        <li><a href="#changes">Policy Changes</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ol>
+    </nav>
+    <section aria-labelledby="data">
+      <h2 id="data">1. Information We Process and Its Purposes</h2>
+      <h3>1. NFC Card Reading and Display</h3>
+      <p>When you initiate a read and bring a card near your device, the app uses NFC to read information that the card allows it to access. This information is used to identify the card type, display card status, balances, and transactions, interpret routes and stations, and analyze reading compatibility. The specific information depends on the card system and the data actually returned by the card:</p>
+      <ul>
+        <li>Card identifiers and protocol data: UID, technology types, protocol parameters, FeliCa IDm, system codes, raw communication responses, and read times. These are card information, not identifiers of your phone.</li>
+        <li>Transit card information: card number or application serial number, issuer, city, card type, validity period, balance, currency, transaction time, amount, type, terminal number, and any readable route, station, entry and exit, boarding and alighting, vehicle, and other trip information. Some cards may also return names, identification document numbers, identification document types, and employee indicators.</li>
+        <li>Readable bank card information: card number (PAN), cardholder name, expiration date, effective date, Track 2-related data, service code, transaction count, and raw responses. Displaying only the last few digits on a page does not mean that the underlying data or raw communications have been redacted.</li>
+      </ul>
+      <p>Route and station identification primarily uses local reference data and does not require your phone’s GPS location. However, card transaction records themselves may reveal your travel history. The app provides only reading and analysis; it does not provide top-up, payment, or card modification features.</p>
+      <h3>2. Transit QR Codes and Images</h3>
+      <p>When you choose to scan a QR code, select an image, or enter HEX/Base64 content, the app parses the image or input locally. Transit codes may contain payment accounts, user accounts, issuer or platform codes, account types, spending limits, public keys or certificates, authorization periods, generation times, and custom data. The app’s business logic has no process for uploading selected images or QR code content to the developer.</p>
+      <p>QR code parsing results are kept in the current controller’s memory and can be cleared manually. The entire selected image may be copied to the app’s private cache, with the old file cleaned up the next time an image is selected. Clearing the parsing results does not mean that this cached image is deleted immediately.</p>
+      <h3>3. Local Card Archives and Preferences</h3>
+      <p>When you manually save a card or enable automatic saving, which is off by default, the app stores information for transit cards that support archiving in a local database for later viewing and comparison. This includes custom names, read times, balances, transactions and trips, historical read batches, parsing results, raw records, and communication frames. A card number used as a card identifier is not anonymized data. Settings such as the theme, automatic saving, and logging switches are also stored on your device. Not all card types support archiving.</p>
+      <h3>4. Runtime Logs and Troubleshooting</h3>
+      <p>File-based runtime logging is off by default. When you enable it, the app locally records operation times, reading stages, exceptions, and the complete HEX of sent and received communications to troubleshoot compatibility issues and failures. Logs may contain recoverable card numbers, identity, account, transaction, and trip information, and are not consistently redacted. Turning logging off only stops future writes; it does not clear existing logs. Communication traces are also kept in memory during reading. Debug builds may write raw communications to Android system debug logs, independently of the file logging switch.</p>
+      <h3>5. Updates and Network Connection Information</h3>
+      <p>Versions with a configured update URL check for updates after startup, and you can also check manually. The app retrieves a version manifest over HTTPS and compares versions locally; this request does not actively attach card contents, logs, or TrafArch account information. The update server and its hosting or content delivery providers may still access network connection information such as IP addresses, access times, and request paths. Versions without a configured update URL do not initiate this check. Reference data package downloads are initiated by the user, and the packages are verified and stored locally after downloading. Visiting an installation package download page opens an external app or browser.</p>
+    </section>
+    <section aria-labelledby="permissions">
+      <h2 id="permissions">2. Device Permissions</h2>
+      <ul>
+        <li><strong>NFC:</strong> Used to read cards at close range. You can control its availability using the system NFC switch.</li>
+        <li><strong>Camera:</strong> Used when you choose to scan a code. You can deny access or revoke it in system settings. Denying access prevents camera-based scanning but does not affect NFC card reading.</li>
+        <li><strong>Image selection:</strong> The app accesses images you select through the system photo picker or file selection interface, rather than proactively scanning your entire photo library.</li>
+        <li><strong>Storage writing:</strong> Requested only when exporting to the public Downloads directory on Android 9 or earlier. On Android 10 or later, exports use the system MediaStore, without requesting legacy storage permissions for this purpose.</li>
+        <li><strong>Network:</strong> Used for updates, external pages, and network connections that third-party SDKs may make. Android’s network permission generally does not require a pop-up authorization each time.</li>
+      </ul>
+      <p>The app’s current business features do not proactively request contacts, SMS, microphone, or phone location permissions. The locally inspected Release installation package also declares Google Play services advertising ID (AD_ID), Android AdServices advertising ID, and attribution permissions. These declarations come from integrated dependencies and support the relevant SDK capabilities. Declaring a permission does not mean that an identifier is necessarily obtained, nor does it mean that the app displays ads or has enabled personalized advertising. Identifier availability also depends on the system, device settings, and SDK configuration. These permissions generally are not requested each time through runtime dialogs like the camera permission.</p>
+    </section>
+    <section aria-labelledby="sharing">
+      <h2 id="sharing">3. Sharing, Third-Party Services, and Recipients</h2>
+      <p>The current card reading and archiving features have no business process that automatically uploads the card database or raw logs to the developer. The following actions and services may cause information to leave the app’s private storage; we do not equate local processing with “no sharing under any circumstances.”</p>
+      <h3>1. Exporting, Copying, or Sending at Your Initiative</h3>
+      <p>When you export archives or logs, the app writes text to the device’s public Download directory. Archives may contain full card numbers, balances, transactions, trips, historical batches, and raw data; log exports also include the app version and export time. Copying raw HEX writes it to the system clipboard. Exporting does not itself automatically send anything to the developer, but file managers, other apps with the appropriate authorization, system clipboard services, and recipients you subsequently choose may access this content. Remove unnecessary sensitive information before sharing and manage external files carefully.</p>
+      <h3>2. Feedback Forms, QQ, and Browsers</h3>
+      <p>When you open the in-app feedback questionnaire, you access a Feishu form through an external browser component. When you open the community group link, you visit a QQ page, which may launch QQ. Recipient categories include Feishu or QQ platform service providers, browser providers, form administrators, project maintainers, and group members or other recipients to whom you choose to send messages.</p>
+      <p>When opening these links, the app passes only the page URL and does not automatically attach cards or logs. The relevant services process the content you enter, attachments you upload, and account details according to their own rules. Visiting a page may also involve IP addresses, browser information, cookies, and login status. Do not submit full card numbers, identity documents, banking information, or unredacted logs in public groups or public issue trackers. After receiving feedback you voluntarily provide, we should use it only to address issues, respond to requests, and perform necessary troubleshooting.</p>
+      <h3>3. Firebase Analytics (Google)</h3>
+      <p>The locally inspected Release installation package contains Firebase Analytics 24.0.0, Firebase configuration, and automatic initialization components, with no explicit app-level configuration disabling collection. This component is used for app usage analytics; it is not required for NFC reading and is not the same as a crash log collection component.</p>
+      <p>This SDK’s automatic analytics involve app instance identifiers, app launch and usage events, and device and system information, with Google/Firebase as the recipient. Access to advertising identifiers and processing of approximate regional information depend on SDK configuration and device settings. The current business logic has no process for sending card numbers, transactions, QR code content, or raw card reading logs as custom analytics events, but this does not mean that the app makes no analytics-related network connections. The app currently has no separate analytics opt-out switch.</p>
+      <p>The configuration described above has been verified from the local installation package. However, runtime testing has not yet confirmed all fields actually transmitted, and the Firebase backend’s data retention settings and processing regions have not been confirmed. Inspecting a local build does not mean that installation packages from all distribution channels have been verified. These unconfirmed matters still need to be established for the relevant version and service configuration and cannot be used as evidence that “no data is collected.”</p>
+      <h3>4. Scanning and Infrastructure Components</h3>
+      <p>Scanning uses mobile_scanner 7.4.2 and the Google ML Kit barcode scanning component 17.3.0, with a local ZXing decoding path as well. The inspected installation package includes the scanning model, so no separate model download is needed for initial recognition. According to Google’s ML Kit documentation, input images, videos, and recognition results are processed on the device and are not sent to Google. This is distinct from the SDK’s own diagnostic network activity.</p>
+      <p>According to Google’s published ML Kit data disclosure, the SDK sends API usage and performance metrics to Google, including device and app information, per-installation identifiers, API configuration, and performance information, for diagnostics, maintenance, and service improvement. The SDK may also connect to servers to obtain updates, fixes, and compatibility information. The app enables scanning auto-zoom; the official disclosure for this feature also lists dynamic scanning session identifiers, zoom changes, and bounding box coordinates for suspected barcodes. These are officially disclosed data categories, not confirmation that field-by-field network verification has been completed for the local version. See the <a href="https://developers.google.com/ml-kit/terms" target="_blank" rel="noopener noreferrer">ML Kit privacy information</a> and <a href="https://developers.google.com/ml-kit/android-data-disclosure" target="_blank" rel="noopener noreferrer">Android data disclosure</a>.</p>
+      <p>Drift/SQLite is used for local storage, system file interfaces for caching and exporting, and WebView, AndroidX Browser, and url_launcher for opening web pages. Third-party services within those pages process data according to their own rules. Third-party service descriptions do not relieve us of our responsibility for the data processing and disclosures of SDKs integrated into the app.</p>
+      <h3>5. System Backups, Hosting, and Legal Obligations</h3>
+      <p>The app has not explicitly disabled Android system backups. Depending on the system version, device manufacturer, and your settings, system backup or device migration services may back up private databases, settings, and logs to storage managed by a system service provider or device manufacturer. Update and download requests are also processed by the relevant server operators, hosting providers, or content delivery providers. When information must be provided to comply with applicable law or respond to lawful and valid legal requests, it should be limited to information actually held and necessary, with the corresponding legally required procedures followed.</p>
+      <p><strong>Cross-border notice:</strong> Local archives have no developer-built cloud synchronization process. However, Google/Firebase, external websites, update hosting, and system backups may process data outside your country or region. There is no guarantee that all these services process data within China. Actual regions, recipients, and retention periods need to be confirmed for the specific version and service configuration. Where cross-border processing legally requires notice or separate consent, the corresponding obligations should be fulfilled separately; this notice does not mean that you have given consent.</p>
+    </section>
+    <section aria-labelledby="storage">
+      <h2 id="storage">4. Storage, Retention, and Security</h2>
+      <p>App archives, settings, and file logs are stored in the Android app’s private directory, relying primarily on the operating system’s app isolation and device security measures. We currently make no commitment to app-level encryption of the archive database. Keep your device’s system up to date, set up lock screen protection, and exercise caution when using rooted devices or Debug builds.</p>
+      <ul>
+        <li>Archives have no fixed automatic expiration period and may remain until you delete them or clear app data. Repeated saves may accumulate historical read batches.</li>
+        <li>When a log file exceeds approximately 512 KiB, the app attempts to retain the most recent 500 lines. This is neither a strict file size limit nor a fixed retention period.</li>
+        <li>Cached images, system backups, exported files, and copies held by third-party services each have their own lifecycle and do not all disappear when a single archive is deleted.</li>
+        <li>Feedback and attachments you voluntarily submit are received by the feedback channel and project maintainers and are not automatically deleted when you delete local archives or uninstall the app. To request deletion of submitted information, use the feedback form under “Contact Us” and provide the minimum information needed to locate the original feedback. A fixed feedback retention period or automatic cleanup schedule has not yet been confirmed, so we do not promise that feedback will be automatically deleted after an issue is closed.</li>
+        <li>Firebase backend retention settings and the update service’s log retention rules have not yet been confirmed. System backups are managed by the system services and settings you use. Deleting local data within the app does not automatically delete copies held by these services. For data we manage, we should handle the corresponding requests; for data independently managed by third parties, requests need to be handled through the relevant service’s rights request mechanism.</li>
+      </ul>
+      <p>No method of storage or transmission can guarantee absolute security. If a personal information security incident involves information actually under our control, we will take measures in accordance with applicable law and fulfill notification obligations when necessary. We will not describe ordinary database deletion as unrecoverable secure erasure.</p>
+    </section>
+    <section aria-labelledby="rights">
+      <h2 id="rights">5. Your Choices and Personal Information Rights</h2>
+      <ul>
+        <li><strong>Access, correction, and export:</strong> You can view reading results and saved archives, change archive names, and export records that support exporting. Original card information is managed by the issuer; the app cannot modify card contents.</li>
+        <li><strong>Deleting archives:</strong> Deleting an archive on the card page also deletes associated local records, such as that card’s read batches, but does not delete separate logs, exported copies, clipboard contents, system backups, or content already received by third parties.</li>
+        <li><strong>Stopping saving or logging:</strong> Turning off automatic saving or logging affects only future behavior. There is currently no separate option to clear logs. To delete all private data, you can use “Clear storage/app data” in Android settings. Before doing so, check whether you need a backup.</li>
+        <li><strong>Cleaning up images and external copies:</strong> You can clear the app cache through the system to remove cached images. Delete exported files separately in a file manager, and manage backups in system or service provider settings. Clearing QR code results clears only the current parsing state.</li>
+        <li><strong>Permission and network choices:</strong> You can revoke camera access, turn off NFC, and avoid using feedback and download links. Declining an update download does not prevent an update check that has already occurred. There is currently no separate in-app switch to disable startup update checks or Firebase analytics. You can use device network controls to manage connections or stop using the relevant version.</li>
+        <li><strong>Uninstalling:</strong> Uninstalling usually deletes the app’s private data, but files in the public Downloads directory and system or third-party backups must be handled separately. System restoration may also restore previously backed-up information.</li>
+      </ul>
+      <p>For information you voluntarily submit and that we hold, you may request access, copies, correction, deletion, restriction of processing, or withdrawal of the relevant consent, and you may raise privacy complaints. We may need to verify the requester’s identity in a necessary and appropriate way to avoid disclosing information to others. Please do not proactively send original identity documents or complete bank card data for verification. We will handle requests in accordance with applicable law and explain why any request cannot be fulfilled. Withdrawing consent does not affect lawful processing performed before withdrawal. The app does not provide TrafArch user accounts, so there is no account deletion process; requests to delete third-party accounts should be made to the relevant service.</p>
+    </section>
+    <section aria-labelledby="children">
+      <h2 id="children">6. Protection of Minors</h2>
+      <p>Minors should use the app under a guardian’s guidance. Children under the age of 14 should obtain a guardian’s consent before reading or sharing cards or transit codes that involve their own personal information. Guardians should pay particular attention to names, identification document information, and travel information on student cards, and prevent children from publicly disclosing this data in feedback or group chats. We do not require age information for basic card reading. If a guardian discovers that a child has submitted inappropriate personal information to us, they can contact the project maintainers to request that it be addressed.</p>
+    </section>
+    <section aria-labelledby="changes">
+      <h2 id="changes">7. Policy Changes</h2>
+      <p>We will update this policy as features, third-party components, and data processing practices change, and indicate the update date on this page. Significant changes involving processing purposes, information types, recipients, or user rights should be brought to your attention through appropriate means. Where renewed or separate consent is required by law, updating the policy page or continued use is not a substitute. This policy is a standard HTML text page and does not require logging in, downloading a file, or installing a PDF reader.</p>
+    </section>
+    <section aria-labelledby="contact">
+      <h2 id="contact">8. Contact Us</h2>
+      <p>If you have questions about TrafArch’s processing of personal information or need to submit a user rights request, contact kajolno / the TrafArch project maintainers through the in-app “Feedback” option or the <a href="https://trafarch.feishu.cn/share/base/form/shrcniZ6QaPgqGazU1bpdmZyNPh" target="_blank" rel="noopener noreferrer">TrafArch feedback form</a>.</p>
+      <p>We recommend specifying the request type, app version, and necessary background about the issue. The feedback form itself is hosted by a third-party service; review that service’s privacy notices first and submit only the information needed to handle your request. For data independently retained by third-party platforms, you also need to use their rights request channels.</p>
+    </section>
+  </main>
+  <footer class="policy-footer">
+    <div class="container"><div class="footer-bottom"><a class="footer-top-link" href="./">Back to home</a><p>© 2026 TrafArch</p></div></div>
+  </footer>
+</body>
+</html>

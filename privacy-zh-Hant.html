@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TrafArch Android 應用程式隱私與個人資訊保護政策：卡片讀取、本機存檔、權限、日誌、資料分享、第三方服務與使用者權利。">
+  <meta name="theme-color" content="#F9F9FF" id="meta-theme">
+  <title>隱私與個人資訊保護政策 — TrafArch</title>
+  <link rel="icon" type="image/png" href="assets/app-icon.png">
+  <script>try{var t=localStorage.getItem('trafarch-theme');document.documentElement.dataset.theme=t||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
+  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .policy-header { border-bottom: 1px solid var(--outline-variant); padding: 20px 0; }
+    .policy-header .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .policy-home { color: var(--primary); font-size: 14px; }
+    .policy-main { max-width: 880px; margin: 0 auto; padding: 64px 24px 32px; }
+    .policy-main h1 { font-size: clamp(28px, 5vw, 42px); line-height: 1.4; margin: 12px 0 20px; letter-spacing: -.03em; }
+    .policy-meta { color: var(--on-surface-variant); font-size: 14px; }
+    .policy-main p, .policy-main li { line-height: 1.95; overflow-wrap: anywhere; }
+    .policy-main p { margin: 14px 0; }
+    .policy-main ul { padding-left: 24px; list-style: disc; }
+    .policy-main li { margin: 9px 0; }
+    .policy-main h2 { font-size: 23px; margin: 42px 0 16px; scroll-margin-top: 24px; }
+    .policy-main h3 { font-size: 17px; margin: 24px 0 10px; }
+    .policy-main a { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
+    .policy-intro, .policy-toc { background: var(--surface-container); border: 1px solid var(--outline-variant); border-radius: 20px; padding: 20px 24px; margin: 28px 0; }
+    .policy-toc ol { padding-left: 24px; }
+    .policy-footer { padding: 0 0 32px; background: transparent; }
+    @media (max-width: 600px) { .policy-main { padding-top: 36px; } .policy-intro, .policy-toc { padding: 16px 20px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+  <header class="policy-header">
+    <div class="container">
+      <a class="brand" href="./" aria-label="TrafArch 首頁"><img src="assets/app-icon.png" alt="" width="38" height="38"><span class="brand-name">TrafArch</span></a>
+      <a class="policy-home" href="./">返回首頁</a>
+    </div>
+  </header>
+  <main class="policy-main" id="main">
+    <nav class="policy-languages" aria-label="政策語言"><a href="privacy.html" lang="zh-CN">简体中文</a><a href="privacy-zh-Hant.html" lang="zh-Hant" aria-current="page">繁体中文</a><a href="privacy-en.html" lang="en-US">English(US)</a></nav>
+    <div class="policy-meta">TrafArch · Android 應用程式</div>
+    <h1>隱私與個人資訊保護政策</h1>
+    <p class="policy-meta">更新日期：2026 年 10 月 26 日 · 生效日期：2026 年 10 月 26 日</p>
+    <p>本政策適用於 kajolno 及 TrafArch 專案維護者（以下簡稱「我們」）提供的 TrafArch Android 應用程式，包括 TrafArch Alpha 測試版本，Android 應用程式套件名稱為 com.kajolno.TrafArch。本政策說明應用程式如何讀取、儲存、使用和對外提供個人資訊，以及您管理這些資訊的方式。第三方網站和服務的獨立處理行為另受其自身政策約束。</p>
+    <div class="policy-intro">
+      <p><strong>請特別留意：</strong>卡片可能包含完整卡號、姓名、證件號碼、金融帳戶及出行紀錄等敏感個人資訊。原始通訊紀錄、日誌和匯出檔案也可能包含這些資訊。請只讀取您本人或已取得合法授權的卡片、乘車碼，並在匯出或提供意見回饋前檢查內容。</p>
+      <p>核心讀卡、解析和存檔在裝置本機進行，不需要註冊 TrafArch 帳戶；但這不代表應用程式在所有情況下均不連網。更新檢查、第三方網頁和可能啟用的統計 SDK，以及系統備份，具有不同的資料處理邊界，詳見下文。本政策本身不取代法律要求的單獨同意或權限授權。</p>
+    </div>
+    <nav class="policy-toc" aria-label="政策目錄">
+      <strong>目錄</strong>
+      <ol>
+        <li><a href="#data">我們處理的資訊及用途</a></li>
+        <li><a href="#permissions">裝置權限</a></li>
+        <li><a href="#sharing">分享、第三方服務與接收方</a></li>
+        <li><a href="#storage">儲存、保留與安全</a></li>
+        <li><a href="#rights">您的選擇與個人資訊權利</a></li>
+        <li><a href="#children">未成年人保護</a></li>
+        <li><a href="#changes">政策變更</a></li>
+        <li><a href="#contact">聯絡我們</a></li>
+      </ol>
+    </nav>
+    <section aria-labelledby="data">
+      <h2 id="data">一、我們處理的資訊及用途</h2>
+      <h3>1. NFC 卡片讀取與顯示</h3>
+      <p>您啟動讀取並將卡片靠近裝置時，應用程式透過 NFC 讀取卡片允許存取的資訊，用於識別卡種、顯示卡片狀態、餘額和交易、解析路線站點及分析讀取相容性。具體範圍取決於卡片體系和卡片實際回傳的資料：</p>
+      <ul>
+        <li>卡片識別資訊和通訊協定資料：UID、技術類型、通訊協定參數、FeliCa IDm、系統碼、原始通訊回應及讀取時間。這些是卡片資訊，不等同於手機裝置識別資訊。</li>
+        <li>交通卡資訊：卡號或應用程式序號、發卡機構、城市、卡種、有效期限、餘額、幣別、交易時間、金額、類型、終端機號碼，以及可讀取的路線、站點、進出站、上下車、車輛和其他行程資訊。部分卡片還可能回傳姓名、證件號碼、證件類型和職工標記。</li>
+        <li>銀行卡可讀資訊：卡號（PAN）、持卡人姓名、有效期限、生效日期、第二磁軌相關資料、服務代碼、交易計數及原始回應。頁面僅顯示末幾碼，不代表底層資料或原始通訊已去識別化。</li>
+      </ul>
+      <p>路線和站點識別主要使用本機參考資料，不需要取得手機 GPS 位置；但卡片交易紀錄本身可能反映您的出行軌跡。應用程式只提供讀取與分析，不提供儲值、付款或修改卡片功能。</p>
+      <h3>2. 乘車 QR Code 與圖片</h3>
+      <p>您主動掃描 QR Code、選擇圖片或輸入 HEX/Base64 內容時，應用程式在本機解析影像或輸入內容。乘車碼可能包含支付帳號、使用者帳號、發卡方或平台代碼、帳戶類型、消費限額、公開金鑰或憑證、授權期限、產生時間及自訂資料。應用程式業務程式碼沒有將所選圖片或 QR Code 內容上傳給開發者的流程。</p>
+      <p>QR Code 解析結果保存在目前控制器的記憶體中，可主動清除；選擇的整張圖片可能被複製至應用程式私有快取，下次選圖時會清理舊檔案。清除解析結果不等於立即刪除該圖片快取。</p>
+      <h3>3. 本機卡片檔案與偏好設定</h3>
+      <p>您手動儲存卡片，或開啟預設關閉的自動儲存功能後，應用程式會在本機資料庫儲存支援建檔的交通卡資訊、自訂名稱、讀取時間、餘額、交易和行程、歷史讀取批次、解析結果、原始紀錄及通訊訊框，供後續查看和比較。卡片識別資訊中的卡號不是匿名化資料。佈景主題、自動儲存與日誌開關等設定也儲存於本機。並非所有卡種都支援建檔。</p>
+      <h3>4. 執行日誌與故障診斷</h3>
+      <p>檔案形式的執行日誌預設關閉。您開啟後，應用程式在本機記錄操作時間、讀取階段、異常及傳送／接收的完整通訊 HEX，用於排查相容性問題和故障。日誌可能包含可還原的卡號、身分、帳戶、交易與行程資訊，未統一去識別化。關閉日誌僅停止後續寫入，不會清除既有日誌。讀取期間還會在記憶體中保留通訊軌跡；Debug 建置版本可能向 Android 系統偵錯日誌寫入原始通訊，不受檔案日誌開關控制。</p>
+      <h3>5. 更新與網路連線資訊</h3>
+      <p>已設定更新網址的版本會在啟動後檢查更新，您也可以手動檢查。應用程式透過 HTTPS 取得版本清單，在本機比較版本；該請求不主動附加卡片內容、日誌或 TrafArch 帳戶資訊。更新伺服器及其託管或內容傳遞服務商仍可接觸 IP 位址、存取時間、請求路徑等網路連線資訊。未設定更新網址的版本不會發起該檢查。參考資料套件下載由使用者觸發，下載後在本機驗證和儲存；前往安裝套件下載頁會開啟外部應用程式或瀏覽器。</p>
+    </section>
+    <section aria-labelledby="permissions">
+      <h2 id="permissions">二、裝置權限</h2>
+      <ul>
+        <li><strong>NFC：</strong>用於讀取近距離卡片。您可以透過系統 NFC 開關控制是否可用。</li>
+        <li><strong>相機：</strong>用於主動掃碼；可拒絕或在系統設定中撤回，拒絕後無法使用相機掃碼，但不影響 NFC 讀卡。</li>
+        <li><strong>圖片選擇：</strong>透過系統圖片選擇器或檔案選擇介面存取您選定的圖片，而非主動掃描全部相簿。</li>
+        <li><strong>儲存空間寫入：</strong>僅在 Android 9 及以下版本匯出至公用下載目錄時申請；Android 10 及以上版本透過系統 MediaStore 匯出，不為此申請舊式儲存空間權限。</li>
+        <li><strong>網路：</strong>用於更新、外部頁面和第三方 SDK 可能產生的連網行為。Android 網路權限通常不是每次都會跳出視窗要求授權的權限。</li>
+      </ul>
+      <p>目前應用程式的業務功能不主動申請通訊錄、簡訊、麥克風或手機定位權限。已查核的本機 Release 安裝套件還宣告了 Google Play 服務廣告 ID（AD_ID）、Android 廣告服務廣告 ID 及歸因權限，這些宣告來自整合的相依套件，用於支援相關 SDK 功能。宣告權限不等於一定取得識別碼，也不代表應用程式顯示廣告或已啟用個人化廣告；識別碼的可用性還受系統、裝置設定和 SDK 設定影響。這些權限通常不會像相機權限那樣，透過執行階段對話框逐次請求。</p>
+    </section>
+    <section aria-labelledby="sharing">
+      <h2 id="sharing">三、分享、第三方服務與接收方</h2>
+      <p>目前卡片讀取與檔案功能沒有自動向開發者上傳卡片資料庫或原始日誌的業務流程。以下操作和服務可能讓資訊離開應用程式私有空間；我們不會把本機處理等同於「任何情況下都不分享」。</p>
+      <h3>1. 您主動匯出、複製或傳送</h3>
+      <p>匯出檔案或日誌時，應用程式將文字寫入裝置公用 Download（下載）目錄。檔案可能包含完整卡號、餘額、交易、行程、歷史批次及原始資料；日誌匯出還包含應用程式版本和匯出時間。複製原始 HEX 會寫入系統剪貼簿。匯出本身不會自動傳送給開發者，但檔案管理員、取得相應授權的其他應用程式、系統剪貼簿服務，以及您隨後選擇的傳送對象可能接觸這些內容。請在分享前刪除不必要的敏感資訊，並妥善管理外部檔案。</p>
+      <h3>2. 意見回饋問卷、QQ 與瀏覽器</h3>
+      <p>您開啟應用程式內的意見回饋問卷時，會透過外部瀏覽器元件存取飛書表單；開啟交流群組入口時，會存取 QQ 頁面並可能啟動 QQ。接收方類型包括飛書或 QQ 平台服務提供者、瀏覽器提供者、表單管理者、專案維護者，以及您主動傳送訊息的群組成員或其他收件人。</p>
+      <p>應用程式開啟這些入口時只傳遞頁面網址，不會自動附加卡片或日誌。您填寫的內容、上傳的附件及帳號資料由相應服務依其規則處理；存取頁面還可能涉及 IP 位址、瀏覽器資訊、Cookie 和登入狀態。請勿在公開群組或公開問題區提交完整卡號、身分證件、銀行資訊或未去識別化的日誌。我們收到您主動提供的意見回饋後，僅應在處理問題、回覆請求及必要的故障分析範圍內使用。</p>
+      <h3>3. Firebase Analytics（Google）</h3>
+      <p>已查核的本機 Release 安裝套件包含 Firebase Analytics 24.0.0、Firebase 設定和自動初始化元件，未在應用程式層級明確設定停用資料蒐集。該元件用於應用程式使用情況統計，不是 NFC 讀取所必需，也不等同於當機日誌蒐集元件。</p>
+      <p>該 SDK 的自動統計涉及應用程式執行個體識別碼、應用程式啟動及使用事件、裝置和系統資訊，接收方為 Google/Firebase；廣告識別碼的取得和概略地區資訊的處理受 SDK 設定及裝置設定影響。目前業務程式碼沒有將卡號、交易、QR Code 內容或原始讀卡日誌作為自訂統計事件傳送的流程，但不能因此認為應用程式沒有統計相關的連網行為。應用程式目前沒有獨立的統計退出開關。</p>
+      <p>上述設定已從本機安裝套件核實，但尚未透過執行驗證確認實際傳送的全部欄位，也未確認 Firebase 後台的資料保留設定和處理地區。本機建置查核不代表已核實所有發佈管道的安裝套件；這些未確認事項仍須結合對應版本和服務設定補齊，不能作為「未蒐集資料」的依據。</p>
+      <h3>4. 掃碼元件及基礎元件</h3>
+      <p>掃碼使用 mobile_scanner 7.4.2 和 Google ML Kit 條碼掃描元件 17.3.0，並有本機 ZXing 解碼路徑。已查核的安裝套件內建掃碼模型，無須為首次識別另行下載該模型。根據 Google 的 ML Kit 說明，輸入圖片、影片和識別結果在裝置上處理，不會傳送給 Google；這與 SDK 自身的診斷連網是不同的資料處理行為。</p>
+      <p>根據 Google 公布的 ML Kit 資料揭露，SDK 會向 Google 傳送 API 使用和效能指標，涉及裝置及應用程式資訊、每次安裝的識別碼、API 設定和效能資訊，用於診斷、維護和改善服務；SDK 也可能為取得更新、修正及相容性資訊而連線至伺服器。應用程式啟用了掃碼自動縮放，該功能的官方揭露還列有掃描工作階段動態識別碼、縮放變化及疑似條碼邊界框座標。以上是官方揭露的資料類別，不代表已對本機版本逐一欄位完成網路驗證。詳見 <a href="https://developers.google.com/ml-kit/terms" target="_blank" rel="noopener noreferrer">ML Kit 隱私說明</a>和<a href="https://developers.google.com/ml-kit/android-data-disclosure" target="_blank" rel="noopener noreferrer">Android 資料揭露</a>。</p>
+      <p>Drift/SQLite 用於本機儲存，系統檔案介面用於快取與匯出，WebView、AndroidX Browser 和 url_launcher 用於開啟網頁；網頁內的第三方服務依其自身規則處理資料。第三方服務的說明不免除我們對應用程式中整合 SDK 的資料處理和揭露責任。</p>
+      <h3>5. 系統備份、託管及法定義務</h3>
+      <p>應用程式未明確關閉 Android 系統備份。根據系統版本、裝置廠商和您的設定，系統備份或換機服務可能將私有資料庫、設定及日誌備份至系統服務商或裝置廠商管理的儲存空間。更新和下載請求還會由相應伺服器營運者、託管商或內容傳遞服務商處理。為履行適用法律、回應合法有效的法定要求而必須提供資訊時，應限於實際持有且必要的範圍，並依法履行相應程序。</p>
+      <p><strong>跨境提示：</strong>本機檔案沒有開發者自建的雲端同步流程，但 Google/Firebase、外部網站、更新託管和系統備份可能在您所在國家或地區以外處理資料。不能保證這些服務均在中國境內處理。實際地區、接收主體與保存期限需要結合具體版本及服務設定確認；涉及依法須告知或取得單獨同意的跨境處理，應另行履行相應義務，本段提示不等同於您已作出同意。</p>
+    </section>
+    <section aria-labelledby="storage">
+      <h2 id="storage">四、儲存、保留與安全</h2>
+      <p>應用程式檔案、設定及檔案日誌儲存於 Android 應用程式私有目錄，主要依賴作業系統的應用程式隔離和裝置安全措施；目前不承諾對檔案資料庫進行應用程式層級加密。請保持裝置系統更新，設定螢幕鎖定保護，謹慎使用已 Root 的裝置或 Debug 建置版本。</p>
+      <ul>
+        <li>檔案沒有固定的自動到期時間，可持續保留至您刪除或清除應用程式資料；重複儲存可能累積歷史讀取批次。</li>
+        <li>檔案日誌超過約 512 KiB 時會嘗試保留最近 500 行，但這不是嚴格的檔案大小上限，也不是固定保存期限。</li>
+        <li>圖片快取、系統備份、匯出檔案和第三方服務副本各有獨立生命週期，不會隨某一筆檔案刪除而全部消失。</li>
+        <li>您主動提交的意見回饋和附件由意見回饋管道及專案維護者接收，不會隨本機檔案刪除或解除安裝而自動刪除。如需刪除已提交的資訊，請透過「聯絡我們」中的意見回饋表單提出請求，並提供查找原意見回饋所需的最少資訊。目前尚未確認意見回饋的固定保留期限或自動清理安排，因此不承諾意見回饋會在結案後自動刪除。</li>
+        <li>Firebase 後台保留設定及更新服務的日誌保留規則尚未確認；系統備份由您使用的系統服務及設定管理。在應用程式內刪除本機資料不會自動刪除這些服務持有的副本。對於由我們管理的資料，應由我們處理相應請求；對於第三方獨立管理的資料，須透過相應服務的權利請求機制處理。</li>
+      </ul>
+      <p>沒有任何儲存或傳輸方式能保證絕對安全。發生涉及我們實際控制的個人資訊安全事件時，我們將依適用法律採取處置措施，並在必要時履行通知義務。我們不會將一般資料庫刪除描述為無法還原的安全抹除。</p>
+    </section>
+    <section aria-labelledby="rights">
+      <h2 id="rights">五、您的選擇與個人資訊權利</h2>
+      <ul>
+        <li><strong>存取、更正與匯出：</strong>您可以查看讀取結果及儲存的檔案，修改檔案名稱，並匯出支援匯出的紀錄。卡片原始資訊由發卡方管理，應用程式不能修改卡片內容。</li>
+        <li><strong>刪除檔案：</strong>在卡片頁面刪除檔案會一併刪除該卡的本機讀取批次等關聯紀錄，但不會刪除獨立日誌、匯出副本、剪貼簿、系統備份或第三方已收到的內容。</li>
+        <li><strong>停止儲存或記錄：</strong>關閉自動儲存或日誌開關僅影響後續行為。目前沒有獨立的日誌清空入口；如需刪除全部私有資料，可使用 Android 設定中的「清除儲存空間／應用程式資料」。操作前請確認是否需要備份。</li>
+        <li><strong>清理圖片及外部副本：</strong>可透過系統清除應用程式快取來處理快取圖片；在檔案管理員中另行刪除匯出檔案，並在系統或服務商設定中管理備份。清除 QR Code 結果僅清除目前解析狀態。</li>
+        <li><strong>權限與連網選擇：</strong>可撤回相機權限、關閉 NFC，不使用意見回饋與下載入口。拒絕更新下載不等於阻止先前的更新檢查；目前應用程式內沒有可獨立關閉啟動時更新檢查或 Firebase 統計的開關，可搭配裝置網路控制來管理連網，或停止使用相應版本。</li>
+        <li><strong>解除安裝：</strong>解除安裝通常會刪除應用程式私有資料，但公用下載目錄檔案及系統或第三方備份須單獨處理，系統還原也可能還原曾備份的資訊。</li>
+      </ul>
+      <p>對於您主動提交並由我們持有的資訊，您可以請求存取、複製、更正、刪除、限制處理或撤回相關同意，並提出隱私申訴。我們可能需要以必要且適當的方式核驗請求者身分，避免向他人揭露資訊；請勿為核驗而主動傳送身分證件正本或完整銀行卡資料。我們將依據適用法律處理，並說明無法執行的原因。撤回同意不影響撤回前依法進行的處理。應用程式不設 TrafArch 使用者帳號，因此沒有帳戶註銷流程；第三方帳戶應向對應服務申請註銷。</p>
+    </section>
+    <section aria-labelledby="children">
+      <h2 id="children">六、未成年人保護</h2>
+      <p>未成年人應在監護人指導下使用。未滿十四歲的兒童讀取或分享涉及本人個人資訊的卡片、乘車碼前，應取得監護人同意；監護人應特別關注學生卡中的姓名、證件與出行資訊，避免兒童在意見回饋或群組聊天中公開這些資料。我們不要求提供年齡以完成基本讀卡。監護人如發現兒童向我們提交了不適當的個人資訊，可以聯絡專案維護者請求處理。</p>
+    </section>
+    <section aria-labelledby="changes">
+      <h2 id="changes">七、政策變更</h2>
+      <p>我們會根據功能、第三方元件和資料處理方式的變化更新本政策，並在此頁面標明更新日期。涉及處理目的、資訊類型、接收方或使用者權利的重大變化，應透過適當方式提示；依法需要重新或單獨徵得同意的，不以政策網頁更新或繼續使用代替。本政策為標準 HTML 文字頁面，不要求登入、下載檔案或安裝 PDF 閱讀器。</p>
+    </section>
+    <section aria-labelledby="contact">
+      <h2 id="contact">八、聯絡我們</h2>
+      <p>如對 TrafArch 的個人資訊處理有疑問，或需要提出使用者權利請求，請透過應用程式內的「意見回饋」入口，或使用<a href="https://trafarch.feishu.cn/share/base/form/shrcniZ6QaPgqGazU1bpdmZyNPh" target="_blank" rel="noopener noreferrer">TrafArch 意見回饋表單</a>聯絡 kajolno / TrafArch 專案維護者。</p>
+      <p>建議說明請求類型、應用程式版本及必要的問題背景；意見回饋表單本身由第三方服務承載，請先查看該服務的隱私提示，僅提交處理請求所需的資訊。涉及第三方平台獨立保存的資料，還須透過其提供的權利請求管道處理。</p>
+    </section>
+  </main>
+  <footer class="policy-footer">
+    <div class="container"><div class="footer-bottom"><a class="footer-top-link" href="./">返回首頁</a><p>© 2026 TrafArch</p></div></div>
+  </footer>
+</body>
+</html>
