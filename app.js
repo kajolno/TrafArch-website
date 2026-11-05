@@ -5,6 +5,7 @@
   const themeToggle = document.getElementById("theme-toggle");
   const themeIcon = document.getElementById("theme-icon");
   const metaTheme = document.getElementById("meta-theme");
+  const logoSources = document.querySelectorAll(".app-logo source");
   const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
   const storageKey = "trafarch-theme";
 
@@ -30,6 +31,9 @@
 
   function applyTheme(theme, persist) {
     root.dataset.theme = theme;
+    logoSources.forEach(function (source) {
+      source.media = theme === "dark" ? "all" : "not all";
+    });
     if (persist) storeTheme(theme);
     if (themeIcon) themeIcon.textContent = theme === "dark" ? "light_mode" : "dark_mode";
     if (themeToggle) {

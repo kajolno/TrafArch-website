@@ -6,7 +6,8 @@
   <meta name="description" content="TrafArch Android 應用程式隱私與個人資訊保護政策：卡片讀取、本機存檔、權限、日誌、資料分享、第三方服務與使用者權利。">
   <meta name="theme-color" content="#F9F9FF" id="meta-theme">
   <title>隱私與個人資訊保護政策 — TrafArch</title>
-  <link rel="icon" type="image/png" href="assets/app-icon.png">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="assets/app-icon.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
   <script>try{var t=localStorage.getItem('trafarch-theme');document.documentElement.dataset.theme=t||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
   <script src="app.js" defer></script>
   <link rel="stylesheet" href="styles.css">
@@ -34,7 +35,13 @@
   <a class="skip-link" href="#main">跳至主要內容</a>
   <header class="policy-header">
     <div class="container">
-      <a class="brand" href="./" aria-label="TrafArch 首頁"><img src="assets/app-icon.png" alt="" width="38" height="38"><span class="brand-name">TrafArch</span></a>
+      <a class="brand" href="./" aria-label="TrafArch 首頁">
+        <picture class="app-logo">
+          <source srcset="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="assets/app-icon.png" alt="" width="38" height="38">
+        </picture>
+        <span class="brand-name">TrafArch</span>
+      </a>
       <a class="policy-home" href="./">返回首頁</a>
     </div>
   </header>
@@ -43,7 +50,7 @@
     <div class="policy-meta">TrafArch · Android 應用程式</div>
     <h1>隱私與個人資訊保護政策</h1>
     <p class="policy-meta">更新日期：2026 年 10 月 26 日 · 生效日期：2026 年 10 月 26 日</p>
-    <p>本政策適用於 kajolno 及 TrafArch 專案維護者（以下簡稱「我們」）提供的 TrafArch Android 應用程式，包括 TrafArch Alpha 測試版本，Android 應用程式套件名稱為 com.kajolno.TrafArch。本政策說明應用程式如何讀取、儲存、使用和對外提供個人資訊，以及您管理這些資訊的方式。第三方網站和服務的獨立處理行為另受其自身政策約束。</p>
+    <p>本政策適用於 kajolno 及 TrafArch 專案維護者（以下簡稱「我們」）提供的 TrafArch Android 應用程式，Android 應用程式套件名稱為 com.kajolno.TrafArch。本政策說明應用程式如何讀取、儲存、使用和對外提供個人資訊，以及您管理這些資訊的方式。第三方網站和服務的獨立處理行為另受其自身政策約束。</p>
     <div class="policy-intro">
       <p><strong>請特別留意：</strong>卡片可能包含完整卡號、姓名、證件號碼、金融帳戶及出行紀錄等敏感個人資訊。原始通訊紀錄、日誌和匯出檔案也可能包含這些資訊。請只讀取您本人或已取得合法授權的卡片、乘車碼，並在匯出或提供意見回饋前檢查內容。</p>
       <p>核心讀卡、解析和存檔在裝置本機進行，不需要註冊 TrafArch 帳戶；但這不代表應用程式在所有情況下均不連網。更新檢查、第三方網頁和可能啟用的統計 SDK，以及系統備份，具有不同的資料處理邊界，詳見下文。本政策本身不取代法律要求的單獨同意或權限授權。</p>

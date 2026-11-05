@@ -6,7 +6,8 @@
   <meta name="description" content="TrafArch Android 应用隐私与个人信息保护政策：卡片读取、本地存档、权限、日志、数据分享、第三方服务与用户权利。">
   <meta name="theme-color" content="#F9F9FF" id="meta-theme">
   <title>隐私与个人信息保护政策 — TrafArch</title>
-  <link rel="icon" type="image/png" href="assets/app-icon.png">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="assets/app-icon.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
   <script>try{var t=localStorage.getItem('trafarch-theme');document.documentElement.dataset.theme=t||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
   <script src="app.js" defer></script>
   <link rel="stylesheet" href="styles.css">
@@ -34,7 +35,13 @@
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="policy-header">
     <div class="container">
-      <a class="brand" href="./" aria-label="TrafArch 首页"><img src="assets/app-icon.png" alt="" width="38" height="38"><span class="brand-name">TrafArch</span></a>
+      <a class="brand" href="./" aria-label="TrafArch 首页">
+        <picture class="app-logo">
+          <source srcset="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="assets/app-icon.png" alt="" width="38" height="38">
+        </picture>
+        <span class="brand-name">TrafArch</span>
+      </a>
       <a class="policy-home" href="./">返回首页</a>
     </div>
   </header>
@@ -47,7 +54,7 @@
     <div class="policy-meta">TrafArch · Android 应用</div>
     <h1>隐私与个人信息保护政策</h1>
     <p class="policy-meta">更新日期：2026 年 10 月 26 日 · 生效日期：2026 年 10 月 26 日</p>
-    <p>本政策适用于 kajolno 及 TrafArch 项目维护者（以下简称“我们”）提供的 TrafArch Android 应用，包括 TrafArch Alpha 测试版本，Android 应用包名为 com.kajolno.TrafArch。本政策说明应用如何读取、存储、使用和对外提供个人信息，以及您管理这些信息的方式。第三方网站和服务的独立处理行为另受其自身政策约束。</p>
+    <p>本政策适用于 kajolno 及 TrafArch 项目维护者（以下简称“我们”）提供的 TrafArch Android 应用，Android 应用包名为 com.kajolno.TrafArch。本政策说明应用如何读取、存储、使用和对外提供个人信息，以及您管理这些信息的方式。第三方网站和服务的独立处理行为另受其自身政策约束。</p>
     <div class="policy-intro">
       <p><strong>请特别留意：</strong>卡片可能包含完整卡号、姓名、证件号码、金融账户及出行记录等敏感个人信息。原始通信记录、日志和导出文件也可能包含这些信息。请只读取您本人或已获得合法授权的卡片、乘车码，并在导出或反馈前检查内容。</p>
       <p>核心读卡、解析和存档在设备本地进行，不需要注册 TrafArch 账户；但这不代表应用在所有情况下均不联网。更新检查、第三方网页和可能启用的统计 SDK，以及系统备份，具有不同的数据处理边界，详见下文。本政策本身不替代法律要求的单独同意或权限授权。</p>

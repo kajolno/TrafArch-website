@@ -10,12 +10,13 @@
   <meta property="og:description" content="把交通卡贴近手机，读懂每一次出行。查看余额与最近行程，保存读过的每一张卡。">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/app-icon.png">
-  <link rel="icon" type="image/png" href="assets/app-icon.png">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="assets/app-icon.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script>try{var t=localStorage.getItem('trafarch-theme');document.documentElement.dataset.theme=t||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme='light'}</script>
+  <script>try{var t=localStorage.getItem('trafarch-theme');document.documentElement.dataset.theme=t||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -25,9 +26,11 @@
   <header class="top-app-bar" id="top">
     <div class="bar-inner">
       <a class="brand" href="./" aria-label="TrafArch 首页">
-        <img src="assets/app-icon.png" alt="" width="38" height="38">
+        <picture class="app-logo">
+          <source srcset="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="assets/app-icon.png" alt="" width="38" height="38">
+        </picture>
         <span class="brand-name">TrafArch</span>
-        <span class="alpha-badge">ALPHA</span>
       </a>
 
       <nav class="nav" aria-label="主导航">
@@ -61,7 +64,7 @@
         <a href="#privacy">数据与权限 <span class="material-symbols-rounded" aria-hidden="true">arrow_outward</span></a>
         <a href="#friends">友情链接 <span class="material-symbols-rounded" aria-hidden="true">arrow_outward</span></a>
         <a class="mobile-download" href="https://github.com/TrafArch/TrafArch/releases" target="_blank" rel="noopener noreferrer">
-          <span class="material-symbols-rounded" aria-hidden="true">download</span>下载 Alpha 版本
+          <span class="material-symbols-rounded" aria-hidden="true">download</span>下载应用
         </a>
       </nav>
     </div>
@@ -82,7 +85,7 @@
         <div class="hero-copy">
           <div class="eyebrow-pill">
             <span class="pulse-dot" aria-hidden="true"></span>
-            Android · Alpha 阶段
+            Android 应用
           </div>
           <h1 id="hero-title">把交通卡贴近手机，<span class="hero-emphasis">读懂每一次出行。</span></h1>
           <p class="hero-lead">TrafArch 是一款 Android 交通卡读取工具。靠近卡片，即可查看卡片信息、可读取的余额和最近行程；也可以保存卡片，之后随时回看已读到的记录。</p>
@@ -134,7 +137,10 @@
 
                 <div class="app-head">
                   <div class="app-brand">
-                    <img src="assets/app-icon.png" alt="" width="22" height="22">
+                    <picture class="app-logo">
+                      <source srcset="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
+                      <img src="assets/app-icon.png" alt="" width="22" height="22">
+                    </picture>
                     <span>TrafArch</span>
                   </div>
                   <span class="phone-nfc"><span class="material-symbols-rounded">nfc</span>NFC 已开启</span>
@@ -596,11 +602,13 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="brand" href="#top" aria-label="TrafArch 首页">
-            <img src="assets/app-icon.png" alt="" width="40" height="40">
+            <picture class="app-logo">
+              <source srcset="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
+              <img src="assets/app-icon.png" alt="" width="40" height="40">
+            </picture>
             <span class="brand-name">TrafArch</span>
           </a>
           <p>Android 交通卡读取工具。查看余额与最近行程，保存读过的每一张卡。</p>
-          <span class="footer-badge">Alpha · 持续完善中</span>
         </div>
         <div class="footer-col">
           <h3>探索</h3>

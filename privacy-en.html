@@ -6,7 +6,8 @@
   <meta name="description" content="Privacy and Personal Information Protection Policy for the TrafArch Android app: card reading, local archives, permissions, logs, data sharing, third-party services, and your rights.">
   <meta name="theme-color" content="#F9F9FF" id="meta-theme">
   <title>Privacy and Personal Information Protection Policy — TrafArch</title>
-  <link rel="icon" type="image/png" href="assets/app-icon.png">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="assets/app-icon.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="1024x1024" href="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
   <script>try{var t=localStorage.getItem('trafarch-theme');document.documentElement.dataset.theme=t||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
   <script src="app.js" defer></script>
   <link rel="stylesheet" href="styles.css">
@@ -34,7 +35,13 @@
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="policy-header">
     <div class="container">
-      <a class="brand" href="./" aria-label="TrafArch home"><img src="assets/app-icon.png" alt="" width="38" height="38"><span class="brand-name">TrafArch</span></a>
+      <a class="brand" href="./" aria-label="TrafArch home">
+        <picture class="app-logo">
+          <source srcset="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="assets/app-icon.png" alt="" width="38" height="38">
+        </picture>
+        <span class="brand-name">TrafArch</span>
+      </a>
       <a class="policy-home" href="./">Back to home</a>
     </div>
   </header>
@@ -43,7 +50,7 @@
     <div class="policy-meta">TrafArch · Android App</div>
     <h1>Privacy and Personal Information Protection Policy</h1>
     <p class="policy-meta">Last updated: October 26, 2026 · Effective date: October 26, 2026</p>
-    <p>This policy applies to the TrafArch Android app provided by kajolno and the TrafArch project maintainers (referred to as “we” or “us”), including TrafArch Alpha test versions. The Android app package name is com.kajolno.TrafArch. This policy explains how the app reads, stores, uses, and provides personal information to others, and how you can manage that information. Independent processing by third-party websites and services is governed separately by their own policies.</p>
+    <p>This policy applies to the TrafArch Android app provided by kajolno and the TrafArch project maintainers (referred to as “we” or “us”). The Android app package name is com.kajolno.TrafArch. This policy explains how the app reads, stores, uses, and provides personal information to others, and how you can manage that information. Independent processing by third-party websites and services is governed separately by their own policies.</p>
     <div class="policy-intro">
       <p><strong>Please pay particular attention:</strong> Cards may contain sensitive personal information, such as full card numbers, names, identification document numbers, financial accounts, and travel records. Raw communication records, logs, and exported files may also contain this information. Read only cards and transit codes that belong to you or that you are legally authorized to read, and review the contents before exporting them or submitting feedback.</p>
       <p>Core card reading, parsing, and archiving take place locally on your device and do not require a TrafArch account. However, this does not mean that the app never connects to the internet under any circumstances. Update checks, third-party web pages, analytics SDKs that may be enabled, and system backups have different data processing boundaries, as detailed below. This policy itself does not replace separate consent or permission authorization required by law.</p>
