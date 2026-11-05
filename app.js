@@ -108,6 +108,7 @@
   const header = document.querySelector(".top-app-bar");
   const progress = document.querySelector(".scroll-progress");
   const fab = document.getElementById("back-to-top");
+  const footer = document.querySelector(".site-footer");
   let ticking = false;
 
   function updateScrollState() {
@@ -117,7 +118,10 @@
     if (progress) {
       progress.style.transform = "scaleX(" + (maxScroll > 0 ? Math.min(scrollTop / maxScroll, 1) : 0) + ")";
     }
-    if (fab) fab.classList.toggle("visible", scrollTop > 560);
+    if (fab) {
+      const footerVisible = footer && footer.getBoundingClientRect().top < window.innerHeight;
+      fab.classList.toggle("visible", scrollTop > 560 && !footerVisible);
+    }
     ticking = false;
   }
 
@@ -130,6 +134,7 @@
     },
     { passive: true },
   );
+  window.addEventListener("resize", updateScrollState);
   updateScrollState();
 
   if (fab) {
