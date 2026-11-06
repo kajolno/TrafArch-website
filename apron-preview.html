@@ -19,6 +19,7 @@
       document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
   </script>
+  <script src="i18n.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -37,7 +38,6 @@
       <symbol id="i-search-off" viewBox="0 0 24 24"><path d="m3 3 18 18M5 6a6.5 6.5 0 0 0 9 9m-7-11a6.5 6.5 0 0 1 10 7m-1 5 5 5"/></symbol>
       <symbol id="i-touch-app" viewBox="0 0 24 24"><path d="M10 12V5a2 2 0 0 1 4 0v7l2-2 4 2v6l-4 4h-5l-6-7a2 2 0 0 1 3-2l2 2m-5-7a7 7 0 0 1 14 0"/></symbol>
       <symbol id="i-add" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
-      <symbol id="i-android" viewBox="0 0 24 24"><path d="m5 5 2 3m12-3-2 3M3 16a9 9 0 0 1 18 0H3Z"/><circle cx="8" cy="12.5" r=".8"/><circle cx="16" cy="12.5" r=".8"/></symbol>
     </defs>
   </svg>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -56,6 +56,16 @@
       </nav>
       <div class="header-actions">
         <a class="original-link" href="index.html">正式官网 <svg class="icon" aria-hidden="true"><use href="#i-north-east"></use></svg></a>
+        <div class="language-switcher">
+          <button class="icon-button" id="language-toggle" type="button" aria-label="切换语言" aria-controls="language-menu" aria-expanded="false">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h12M9 3v2m4 0c-1 5-4 8-9 10m2-7c1 3 4 5 7 7m0 6 4-10 4 10m-7-3h6"/></svg>
+          </button>
+          <nav class="language-menu" id="language-menu" aria-label="切换语言" hidden>
+            <a href="?lang=zh-CN" lang="zh-CN" hreflang="zh-CN" aria-current="true">简体中文<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></a>
+            <a href="?lang=zh-Hant" lang="zh-Hant" hreflang="zh-Hant">繁體中文<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></a>
+            <a href="?lang=en-US" lang="en-US" hreflang="en-US">English (US)<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></a>
+          </nav>
+        </div>
         <button class="icon-button" id="theme-toggle" type="button" aria-label="切换到深色模式">
           <span class="icon" id="theme-icon" aria-hidden="true">dark_mode</span>
         </button>
@@ -77,13 +87,12 @@
       <div class="hero-grid wrap">
         <div class="hero-copy">
           <div class="eyebrow"><span class="signal-dot"></span> 让交通卡里的信息，清晰可见</div>
-          <h1 id="hero-title">贴近一张卡，<br>看见<span class="text-primary">每次出行。</span></h1>
+          <h1 id="hero-title">读懂交通卡，<br>留住<span class="text-primary">每次出行。</span></h1>
           <p class="hero-description">余额、行程，还有沿途的点滴。<br>TrafArch 帮你读懂交通卡，留存自己的出行记录。</p>
           <div class="hero-buttons">
             <a class="apron-button apron-button--primary apron-button--md button-large" href="https://github.com/TrafArch/TrafArch/releases" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true">download</span> 下载 Android 应用</a>
             <a class="apron-button apron-button--default apron-button--md button-large" href="#guide">了解使用方式 <span class="icon" aria-hidden="true">arrow_downward</span></a>
           </div>
-          <div class="hero-meta"><span><svg class="icon" aria-hidden="true"><use href="#i-android"></use></svg> Android · NFC</span><span class="meta-divider"></span><a href="https://github.com/TrafArch/TrafArch" target="_blank" rel="noopener noreferrer">开放源代码 <svg class="icon" aria-hidden="true"><use href="#i-north-east"></use></svg></a></div>
           <p class="hero-note">仅提供信息读取与展示，不提供充值、支付或修改卡片功能。</p>
         </div>
 
@@ -153,12 +162,12 @@
       <div class="support-tools"><div class="filter-group" role="group" aria-label="按卡片类型筛选"><button type="button" class="filter-button is-active" aria-pressed="true" data-filter="all">全部卡种</button><button type="button" class="filter-button" aria-pressed="false" data-filter="card">实体交通卡</button><button type="button" class="filter-button" aria-pressed="false" data-filter="qr">乘车码</button></div><label class="search-box"><svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg><span class="sr-only">搜索卡种或城市</span><input id="support-search" type="search" placeholder="搜索卡种或城市" autocomplete="off"></label></div>
       <div class="support-list apron-card">
         <div class="support-table-heading" aria-hidden="true"><span>卡片类型</span><span>可读取的内容</span><span>支持情况</span></div>
-        <article class="support-row" data-category="card" data-keywords="交通联合 全国 T-Union"><h3><span class="icon" aria-hidden="true">contactless</span>交通联合卡</h3><p>公开可访问的卡片信息、钱包余额、交易与乘车记录；线路与站点识别取决于卡内记录和参考数据。</p><span class="support-status full">支持读取</span></article>
-        <article class="support-row" data-category="card" data-keywords="城市一卡通"><h3><span class="icon" aria-hidden="true">credit_card</span>城市一卡通</h3><p>部分城市和卡种的卡片信息、余额及记录，具体可读取内容因卡片而异。</p><span class="support-status">部分支持</span></article>
-        <article class="support-row" data-category="card" data-keywords="地方交通卡 北京 上海 武汉通 羊城通 深圳通 苏州 天府通"><h3><span class="icon" aria-hidden="true">location_city</span>地方交通卡</h3><div><p>已有以下城市的读取路径，支持情况取决于具体卡片版本。</p><div class="city-tags"><span>北京</span><span>上海</span><span>武汉通</span><span>羊城通</span><span>深圳通</span><span>苏州</span><span>天府通</span></div></div><span class="support-status">部分城市</span></article>
-        <article class="support-row" data-category="card" data-keywords="FeliCa Suica 日本"><h3><span class="icon" aria-hidden="true">sim_card</span>部分 FeliCa 卡片</h3><p>提供识别和部分信息读取；Suica 可尝试读取开放服务中的余额与历史，取决于卡片和手机 NFC 能力。</p><span class="support-status">部分支持</span></article>
-        <article class="support-row" data-category="card" data-keywords="八达通 香港 全国通"><h3><span class="icon" aria-hidden="true">travel_explore</span>八达通相关产品</h3><p>支持部分产品识别，尚未实现港币钱包余额与交易读取。全国通交通联合侧金额不等于港币余额。</p><span class="support-status limited">识别有限</span></article>
-        <article class="support-row" data-category="qr" data-keywords="乘车码 二维码 JT/T 1179 扫码"><h3><span class="icon" aria-hidden="true">qr_code_scanner</span>标准乘车码</h3><p>支持 JT/T 1179 标准乘车码的相机扫描与图片导入，不适用于所有支付码和城市自有格式。</p><span class="support-status full">标准支持</span></article>
+        <article class="support-row" data-category="card" data-keywords="交通联合 交通聯合 全国 全國 T-Union China"><h3><span class="icon" aria-hidden="true">contactless</span>交通联合卡</h3><p>公开可访问的卡片信息、钱包余额、交易与乘车记录；线路与站点识别取决于卡内记录和参考数据。</p><span class="support-status full">支持读取</span></article>
+        <article class="support-row" data-category="card" data-keywords="城市一卡通 City transit cards"><h3><span class="icon" aria-hidden="true">credit_card</span>城市一卡通</h3><p>部分城市和卡种的卡片信息、余额及记录，具体可读取内容因卡片而异。</p><span class="support-status">部分支持</span></article>
+        <article class="support-row" data-category="card" data-keywords="地方交通卡 北京 上海 武汉通 武漢通 羊城通 深圳通 苏州 蘇州 天府通 Local transit cards Beijing Shanghai Wuhan Tong Yang Cheng Tong Guangzhou Shenzhen Tong Suzhou Tianfu Tong Chengdu"><h3><span class="icon" aria-hidden="true">location_city</span>地方交通卡</h3><div><p>已有以下城市的读取路径，支持情况取决于具体卡片版本。</p><div class="city-tags"><span>北京</span><span>上海</span><span>武汉通</span><span>羊城通</span><span>深圳通</span><span>苏州</span><span>天府通</span></div></div><span class="support-status">部分城市</span></article>
+        <article class="support-row" data-category="card" data-keywords="FeliCa Suica 日本 Japan"><h3><span class="icon" aria-hidden="true">sim_card</span>部分 FeliCa 卡片</h3><p>提供识别和部分信息读取；Suica 可尝试读取开放服务中的余额与历史，取决于卡片和手机 NFC 能力。</p><span class="support-status">部分支持</span></article>
+        <article class="support-row" data-category="card" data-keywords="八达通 八達通 香港 全国通 全國通 Octopus Hong Kong China T-Union"><h3><span class="icon" aria-hidden="true">travel_explore</span>八达通相关产品</h3><p>支持部分产品识别，尚未实现港币钱包余额与交易读取。全国通交通联合侧金额不等于港币余额。</p><span class="support-status limited">识别有限</span></article>
+        <article class="support-row" data-category="qr" data-keywords="乘车码 乘車碼 二维码 二維碼 JT/T 1179 扫码 掃碼 transit QR code"><h3><span class="icon" aria-hidden="true">qr_code_scanner</span>标准乘车码</h3><p>支持 JT/T 1179 标准乘车码的相机扫描与图片导入，不适用于所有支付码和城市自有格式。</p><span class="support-status full">标准支持</span></article>
         <p class="search-empty" id="support-empty" hidden><svg class="icon" aria-hidden="true"><use href="#i-search-off"></use></svg>没有找到匹配的卡种，试试其他关键词。</p>
       </div>
       <p class="support-note" id="support-result" role="status">共 6 类卡种与乘车码。卡片仅保留有限条最近记录，及时保存可以留存已读到的信息。</p>
@@ -189,7 +198,7 @@
       </a>
     </section>
   </main>
-  <footer class="page-footer wrap"><a class="brand" href="#"><img class="brand-icon" src="assets/app-icon.png" alt="" width="28" height="28"><span>TrafArch</span></a><p>读懂交通卡，留存每一次出行。</p><nav aria-label="页脚导航"><a href="privacy.html">隐私政策</a><a href="index.html">正式官网</a><a href="https://github.com/TrafArch/TrafArch" target="_blank" rel="noopener noreferrer">GitHub</a></nav><span>© <span id="year">2026</span> TrafArch</span></footer>
+  <footer class="page-footer wrap"><a class="brand" href="#"><img class="brand-icon" src="assets/app-icon.png" alt="" width="28" height="28"><span>TrafArch</span></a><p>读懂交通卡，留住每次出行</p><nav aria-label="页脚导航"><a href="privacy.html">隐私政策</a><a href="index.html">正式官网</a><a href="https://github.com/TrafArch/TrafArch" target="_blank" rel="noopener noreferrer">GitHub</a></nav><span>© <span id="year">2026</span> TrafArch</span></footer>
   <div class="toast" id="demo-toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
 </body>
 </html>

@@ -9,6 +9,7 @@
   var themeKey = "trafarch-theme";
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   var activeMotions = new Map();
+  var t = window.TrafArchI18n.t;
 
   function playMotion(element, keyframes, duration) {
     var previous = activeMotions.get(element);
@@ -35,7 +36,7 @@
     root.dataset.theme = theme;
     if (dark) document.body.setAttribute("apron-theme", "dark");
     else document.body.removeAttribute("apron-theme");
-    themeButton.setAttribute("aria-label", dark ? (themeButton.dataset.labelLight || "切换到浅色模式") : (themeButton.dataset.labelDark || "切换到深色模式"));
+    themeButton.setAttribute("aria-label", t(dark ? "切换到浅色模式" : "切换到深色模式"));
     themeIcon.textContent = dark ? "light_mode" : "dark_mode";
     themeColor.content = dark ? "#111318" : "#F9F9FF";
     document.querySelectorAll(".brand-icon").forEach(function (image) {
@@ -49,6 +50,7 @@
   setTheme(root.dataset.theme || "light", false);
   themeButton.addEventListener("click", function () { setTheme(root.dataset.theme === "dark" ? "light" : "dark", true); });
   systemTheme.addEventListener("change", function (event) { if (!savedTheme()) setTheme(event.matches ? "dark" : "light", false); });
+  window.addEventListener("trafarch:languagechange", function () { setTheme(root.dataset.theme, false); });
 
   var menuButton = document.getElementById("menu-toggle");
   var menu = document.getElementById("mobile-nav");
@@ -56,7 +58,7 @@
     function setMenu(open) {
       menu.hidden = !open;
       menuButton.setAttribute("aria-expanded", String(open));
-      menuButton.setAttribute("aria-label", open ? "关闭菜单" : "打开菜单");
+      menuButton.setAttribute("aria-label", t(open ? "关闭菜单" : "打开菜单"));
       document.getElementById("menu-icon").textContent = open ? "close" : "menu";
     }
     menuButton.addEventListener("click", function () { setMenu(menu.hidden); });
@@ -68,6 +70,7 @@
       if (!menu.hidden && !menu.contains(event.target) && !menuButton.contains(event.target)) setMenu(false);
     });
     window.addEventListener("resize", function () { if (innerWidth > 700) setMenu(false); });
+    window.addEventListener("trafarch:languagechange", function () { setMenu(!menu.hidden); });
   }
 
   function initHomeDemo() {
@@ -88,6 +91,7 @@
     if ("ResizeObserver" in window) new ResizeObserver(updateTabIndicator).observe(tabList);
     else window.addEventListener("resize", updateTabIndicator);
     if (document.fonts) document.fonts.ready.then(updateTabIndicator);
+    window.addEventListener("trafarch:languagechange", function () { requestAnimationFrame(updateTabIndicator); });
 
     function selectTab(name, focus) {
       tabs.forEach(function (tab) {
@@ -123,10 +127,12 @@
     var toast = document.getElementById("demo-toast");
     var toastTimer;
     var toastVersion = 0;
+    var toastMessage = "";
     function notify(message) {
       clearTimeout(toastTimer);
       var version = ++toastVersion;
-      toast.textContent = message;
+      toastMessage = message;
+      toast.textContent = t(message);
       toast.hidden = false;
       playMotion(toast, [{ opacity: 0, translate: "0 10px" }, { opacity: 1, translate: "0 0" }], 350);
       toastTimer = setTimeout(function () {
@@ -144,29 +150,37 @@
       }, 3500);
     }
     var saveButton = document.getElementById("save-demo");
+    var hasSaved = false;
+    var isReading = false;
+    function updateDemoLabels() {
+      saveButton.querySelector("span:last-child").textContent = t(hasSaved ? "已保存示例" : "保存这张卡");
+      document.getElementById("archive-description").textContent = t(hasSaved ? "刚刚保存 · 尾号 6821 · 演示数据" : "示例档案 · 尾号 6821");
+      document.getElementById("read-demo").querySelector("span:last-child").textContent = t(isReading ? "正在读取…" : "再次读取");
+      document.getElementById("read-status").textContent = t(isReading ? "正在读取" : "读取完成");
+      if (!toast.hidden) toast.textContent = t(toastMessage);
+    }
     saveButton.addEventListener("click", function () {
+      hasSaved = true;
       saveButton.querySelector(".icon").textContent = "check_circle";
-      saveButton.querySelector("span:last-child").textContent = "已保存示例";
-      document.getElementById("archive-description").textContent = "刚刚保存 · 尾号 6821 · 演示数据";
+      updateDemoLabels();
       playMotion(saveButton.querySelector(".icon"), [{ scale: .7 }, { scale: 1.2, offset: .6 }, { scale: 1 }], 550);
       notify("示例卡片已加入“本地档案”，可切换标签查看。此操作仅作页面演示。");
     });
     var readButton = document.getElementById("read-demo");
     readButton.addEventListener("click", function () {
       var stage = document.querySelector(".demo-stage");
-      var status = document.getElementById("read-status");
       selectTab("overview", false);
       stage.classList.add("is-reading");
+      isReading = true;
       readButton.disabled = true;
       readButton.setAttribute("aria-busy", "true");
-      readButton.querySelector("span:last-child").textContent = "正在读取…";
-      status.textContent = "正在读取";
+      updateDemoLabels();
       setTimeout(function () {
         stage.classList.remove("is-reading");
+        isReading = false;
         readButton.disabled = false;
         readButton.removeAttribute("aria-busy");
-        readButton.querySelector("span:last-child").textContent = "再次读取";
-        status.textContent = "读取完成";
+        updateDemoLabels();
         playMotion(document.querySelector(".transit-card"), [
           { boxShadow: "0 0 0 0 transparent" },
           { boxShadow: "0 0 0 4px var(--primary-container)", offset: .4 },
@@ -190,7 +204,9 @@
         if (matches) count += 1;
       });
       document.getElementById("support-empty").hidden = count > 0;
-      document.getElementById("support-result").textContent = "共 " + count + " 类匹配。卡片仅保留有限条最近记录，及时保存可以留存已读到的信息。";
+      document.getElementById("support-result").textContent = t(category === "all" && !query
+        ? "共 6 类卡种与乘车码。卡片仅保留有限条最近记录，及时保存可以留存已读到的信息。"
+        : "共 {count} 类匹配。卡片仅保留有限条最近记录，及时保存可以留存已读到的信息。", { count: count });
     }
     search.addEventListener("input", filterCards);
     filters.forEach(function (button) {
@@ -203,6 +219,10 @@
         });
         filterCards();
       });
+    });
+    window.addEventListener("trafarch:languagechange", function () {
+      updateDemoLabels();
+      filterCards();
     });
   }
   if (document.querySelector(".demo-tabs")) initHomeDemo();

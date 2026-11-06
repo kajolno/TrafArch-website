@@ -19,6 +19,7 @@
       document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
   </script>
+  <script src="i18n.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body class="policy-page">
@@ -31,7 +32,17 @@
       </a>
       <span class="policy-header-caption">Data & privacy</span>
       <div class="header-actions">
-        <a class="apron-button apron-button--default apron-button--md policy-home" href="./"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg><span>Back to home</span></a>
+        <a class="apron-button apron-button--default apron-button--md policy-home" href="./" aria-label="Back to home" title="Back to home"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg><span>Back to home</span></a>
+        <div class="language-switcher">
+          <button class="icon-button" id="language-toggle" type="button" aria-label="Change language" aria-controls="language-menu" aria-expanded="false">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h12M9 3v2m4 0c-1 5-4 8-9 10m2-7c1 3 4 5 7 7m0 6 4-10 4 10m-7-3h6"/></svg>
+          </button>
+          <nav class="language-menu" id="language-menu" aria-label="Change language" hidden>
+            <a href="privacy.html" lang="zh-CN" hreflang="zh-CN">简体中文<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></a>
+            <a href="privacy-zh-Hant.html" lang="zh-Hant" hreflang="zh-Hant">繁體中文<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></a>
+            <a href="privacy-en.html" lang="en-US" hreflang="en-US" aria-current="true">English (US)<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></a>
+          </nav>
+        </div>
         <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to dark mode" data-label-light="Switch to light mode" data-label-dark="Switch to dark mode">
           <span class="icon" id="theme-icon" aria-hidden="true">dark_mode</span>
         </button>
@@ -41,12 +52,10 @@
   <main class="policy-main wrap" id="main">
     <div class="policy-topline">
       <span class="policy-breadcrumb"><span class="icon" aria-hidden="true">shield_lock</span>Data & privacy</span>
-      <nav class="policy-languages" aria-label="Policy language"><a href="privacy.html" lang="zh-CN">简体中文</a><a href="privacy-zh-Hant.html" lang="zh-Hant">繁体中文</a><a href="privacy-en.html" lang="en-US" aria-current="page">English(US)</a></nav>
     </div>
     <header class="policy-title">
-      <p class="section-label">TrafArch · Android App</p>
+      <p class="section-label">TrafArch</p>
       <h1>Privacy and Personal Information Protection Policy</h1>
-      <p class="policy-subtitle">Your information, clearly explained.</p>
       <p class="policy-meta">Last updated: October 26, 2026 · Effective date: October 26, 2026</p>
     </header>
     <div class="policy-layout">
@@ -168,7 +177,7 @@
   </main>
   <footer class="page-footer wrap">
     <a class="brand" href="./"><img class="brand-icon" src="assets/app-icon.png" alt="" width="28" height="28"><span>TrafArch</span></a>
-    <p>Read your transit card. Keep your journeys.</p>
+    <p>Read your transit cards. Keep every journey.</p>
     <nav aria-label="Footer navigation"><a href="./">Back to home</a><a href="https://qm.qq.com/q/QXYz3s3iI8" target="_blank" rel="noopener noreferrer">Feedback group</a><a href="https://github.com/TrafArch/TrafArch" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
     <span>© <span id="year">2026</span> TrafArch</span>
   </footer>

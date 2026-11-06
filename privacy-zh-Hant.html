@@ -19,6 +19,7 @@
       document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
   </script>
+  <script src="i18n.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body class="policy-page">
@@ -31,7 +32,17 @@
       </a>
       <span class="policy-header-caption">資料與隱私</span>
       <div class="header-actions">
-        <a class="apron-button apron-button--default apron-button--md policy-home" href="./"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg><span>返回首頁</span></a>
+        <a class="apron-button apron-button--default apron-button--md policy-home" href="./" aria-label="返回首頁" title="返回首頁"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg><span>返回首頁</span></a>
+        <div class="language-switcher">
+          <button class="icon-button" id="language-toggle" type="button" aria-label="切換語言" aria-controls="language-menu" aria-expanded="false">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h12M9 3v2m4 0c-1 5-4 8-9 10m2-7c1 3 4 5 7 7m0 6 4-10 4 10m-7-3h6"/></svg>
+          </button>
+          <nav class="language-menu" id="language-menu" aria-label="切換語言" hidden>
+            <a href="privacy.html" lang="zh-CN" hreflang="zh-CN">简体中文<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></a>
+            <a href="privacy-zh-Hant.html" lang="zh-Hant" hreflang="zh-Hant" aria-current="true">繁體中文<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></a>
+            <a href="privacy-en.html" lang="en-US" hreflang="en-US">English (US)<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></a>
+          </nav>
+        </div>
         <button class="icon-button" id="theme-toggle" type="button" aria-label="切換到深色模式" data-label-light="切換到淺色模式" data-label-dark="切換到深色模式">
           <span class="icon" id="theme-icon" aria-hidden="true">dark_mode</span>
         </button>
@@ -41,12 +52,10 @@
   <main class="policy-main wrap" id="main">
     <div class="policy-topline">
       <span class="policy-breadcrumb"><span class="icon" aria-hidden="true">shield_lock</span>資料與隱私</span>
-      <nav class="policy-languages" aria-label="政策語言"><a href="privacy.html" lang="zh-CN">简体中文</a><a href="privacy-zh-Hant.html" lang="zh-Hant" aria-current="page">繁体中文</a><a href="privacy-en.html" lang="en-US">English(US)</a></nav>
     </div>
     <header class="policy-title">
-      <p class="section-label">TrafArch · Android 應用程式</p>
+      <p class="section-label">TrafArch</p>
       <h1>隱私與個人資訊保護政策</h1>
-      <p class="policy-subtitle">關於資訊，清楚說明。</p>
       <p class="policy-meta">更新日期：2026 年 10 月 26 日 · 生效日期：2026 年 10 月 26 日</p>
     </header>
     <div class="policy-layout">
@@ -168,7 +177,7 @@
   </main>
   <footer class="page-footer wrap">
     <a class="brand" href="./"><img class="brand-icon" src="assets/app-icon.png" alt="" width="28" height="28"><span>TrafArch</span></a>
-    <p>讀懂交通卡，留存每一次出行。</p>
+    <p>讀懂交通卡，留住每次出行</p>
     <nav aria-label="頁尾導覽"><a href="./">返回首頁</a><a href="https://qm.qq.com/q/QXYz3s3iI8" target="_blank" rel="noopener noreferrer">意見回饋群組</a><a href="https://github.com/TrafArch/TrafArch" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
     <span>© <span id="year">2026</span> TrafArch</span>
   </footer>
