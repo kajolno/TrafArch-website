@@ -6,56 +6,54 @@
   <meta name="description" content="Privacy and Personal Information Protection Policy for the TrafArch Android app: card reading, local archives, permissions, logs, data sharing, third-party services, and your rights.">
   <meta name="theme-color" content="#F9F9FF" id="meta-theme">
   <title>Privacy and Personal Information Protection Policy — TrafArch</title>
-  <link rel="icon" type="image/png" sizes="1024x1024" href="assets/app-icon.png" media="(prefers-color-scheme: light)">
-  <link rel="icon" type="image/png" sizes="1024x1024" href="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
-  <script>try{var t=localStorage.getItem('trafarch-theme');document.documentElement.dataset.theme=t||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
-  <script src="app.js" defer></script>
+  <link rel="icon" type="image/png" href="assets/app-icon.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="assets/fonts/harmonyos-sans/wght.css">
+  <link rel="stylesheet" href="assets/vendor/apron-design/index.css">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .policy-header { border-bottom: 1px solid var(--outline-variant); padding: 20px 0; }
-    .policy-header .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .policy-home { color: var(--primary); font-size: 14px; }
-    .policy-main { max-width: 880px; margin: 0 auto; padding: 64px 24px 32px; }
-    .policy-main h1 { font-size: clamp(28px, 5vw, 42px); line-height: 1.4; margin: 12px 0 20px; letter-spacing: -.03em; }
-    .policy-meta { color: var(--on-surface-variant); font-size: 14px; }
-    .policy-main p, .policy-main li { line-height: 1.95; overflow-wrap: anywhere; }
-    .policy-main p { margin: 14px 0; }
-    .policy-main ul { padding-left: 24px; list-style: disc; }
-    .policy-main li { margin: 9px 0; }
-    .policy-main h2 { font-size: 23px; margin: 42px 0 16px; scroll-margin-top: 24px; }
-    .policy-main h3 { font-size: 17px; margin: 24px 0 10px; }
-    .policy-main a { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
-    .policy-intro, .policy-toc { background: var(--surface-container); border: 1px solid var(--outline-variant); border-radius: 20px; padding: 20px 24px; margin: 28px 0; }
-    .policy-toc ol { padding-left: 24px; }
-    @media (max-width: 600px) { .policy-main { padding-top: 36px; } .policy-intro, .policy-toc { padding: 16px 20px; } }
-  </style>
+  <script>
+    try {
+      var theme = localStorage.getItem('trafarch-theme') || localStorage.getItem('trafarch-apron-theme');
+      document.documentElement.dataset.theme = theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch (e) {
+      document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+  </script>
+  <script src="app.js" defer></script>
 </head>
-<body>
+<body class="policy-page">
   <a class="skip-link" href="#main">Skip to main content</a>
-  <header class="policy-header">
-    <div class="container">
+  <header class="page-header">
+    <div class="wrap header-inner">
       <a class="brand" href="./" aria-label="TrafArch home">
-        <picture class="app-logo">
-          <source srcset="assets/app-icon-dark.png" media="(prefers-color-scheme: dark)">
-          <img src="assets/app-icon.png" alt="" width="38" height="38">
-        </picture>
-        <span class="brand-name">TrafArch</span>
+        <img class="brand-icon" src="assets/app-icon.png" alt="" width="36" height="36">
+        <span>TrafArch</span>
       </a>
-      <a class="policy-home" href="./">Back to home</a>
+      <span class="policy-header-caption">Data & privacy</span>
+      <div class="header-actions">
+        <a class="apron-button apron-button--default apron-button--md policy-home" href="./"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg><span>Back to home</span></a>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to dark mode" data-label-light="Switch to light mode" data-label-dark="Switch to dark mode">
+          <span class="icon" id="theme-icon" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
     </div>
   </header>
-  <main class="policy-main" id="main">
-    <nav class="policy-languages" aria-label="Policy language"><a href="privacy.html" lang="zh-CN">简体中文</a><a href="privacy-zh-Hant.html" lang="zh-Hant">繁体中文</a><a href="privacy-en.html" lang="en-US" aria-current="page">English(US)</a></nav>
-    <div class="policy-meta">TrafArch · Android App</div>
-    <h1>Privacy and Personal Information Protection Policy</h1>
-    <p class="policy-meta">Last updated: October 26, 2026 · Effective date: October 26, 2026</p>
-    <p>This policy applies to the TrafArch Android app provided by kajolno and the TrafArch project maintainers (referred to as “we” or “us”). The Android app package name is com.kajolno.TrafArch. This policy explains how the app reads, stores, uses, and provides personal information to others, and how you can manage that information. Independent processing by third-party websites and services is governed separately by their own policies.</p>
-    <div class="policy-intro">
-      <p><strong>Please pay particular attention:</strong> Cards may contain sensitive personal information, such as full card numbers, names, identification document numbers, financial accounts, and travel records. Raw communication records, logs, and exported files may also contain this information. Read only cards and transit codes that belong to you or that you are legally authorized to read, and review the contents before exporting them or submitting feedback.</p>
-      <p>Core card reading, parsing, and archiving take place locally on your device and do not require a TrafArch account. However, this does not mean that the app never connects to the internet under any circumstances. Update checks, third-party web pages, analytics SDKs that may be enabled, and system backups have different data processing boundaries, as detailed below. This policy itself does not replace separate consent or permission authorization required by law.</p>
+  <main class="policy-main wrap" id="main">
+    <div class="policy-topline">
+      <span class="policy-breadcrumb"><span class="icon" aria-hidden="true">shield_lock</span>Data & privacy</span>
+      <nav class="policy-languages" aria-label="Policy language"><a href="privacy.html" lang="zh-CN">简体中文</a><a href="privacy-zh-Hant.html" lang="zh-Hant">繁体中文</a><a href="privacy-en.html" lang="en-US" aria-current="page">English(US)</a></nav>
     </div>
-    <nav class="policy-toc" aria-label="Policy table of contents">
-      <strong>Contents</strong>
+    <header class="policy-title">
+      <p class="section-label">TrafArch · Android App</p>
+      <h1>Privacy and Personal Information Protection Policy</h1>
+      <p class="policy-subtitle">Your information, clearly explained.</p>
+      <p class="policy-meta">Last updated: October 26, 2026 · Effective date: October 26, 2026</p>
+    </header>
+    <div class="policy-layout">
+      <aside class="policy-sidebar">
+        <details class="policy-toc apron-card" open>
+          <summary><span>Contents</span><span class="icon" aria-hidden="true">expand_more</span></summary>
+          <nav aria-label="Policy table of contents">
       <ol>
         <li><a href="#data">Information We Process and Its Purposes</a></li>
         <li><a href="#permissions">Device Permissions</a></li>
@@ -66,8 +64,18 @@
         <li><a href="#changes">Policy Changes</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ol>
-    </nav>
-    <section aria-labelledby="data">
+              </nav>
+        </details>
+      </aside>
+      <article class="policy-document" aria-label="Privacy and Personal Information Protection Policy">
+        <div class="policy-overview">
+          <p>This policy applies to the TrafArch Android app provided by kajolno and the TrafArch project maintainers (referred to as “we” or “us”). The Android app package name is com.kajolno.TrafArch. This policy explains how the app reads, stores, uses, and provides personal information to others, and how you can manage that information. Independent processing by third-party websites and services is governed separately by their own policies.</p>
+    <div class="policy-intro">
+      <p><strong>Please pay particular attention:</strong> Cards may contain sensitive personal information, such as full card numbers, names, identification document numbers, financial accounts, and travel records. Raw communication records, logs, and exported files may also contain this information. Read only cards and transit codes that belong to you or that you are legally authorized to read, and review the contents before exporting them or submitting feedback.</p>
+      <p>Core card reading, parsing, and archiving take place locally on your device and do not require a TrafArch account. However, this does not mean that the app never connects to the internet under any circumstances. Update checks, third-party web pages, analytics SDKs that may be enabled, and system backups have different data processing boundaries, as detailed below. This policy itself does not replace separate consent or permission authorization required by law.</p>
+    </div>
+        </div>
+        <section aria-labelledby="data">
       <h2 id="data">1. Information We Process and Its Purposes</h2>
       <h3>1. NFC Card Reading and Display</h3>
       <p>When you initiate a read and bring a card near your device, the app uses NFC to read information that the card allows it to access. This information is used to identify the card type, display card status, balances, and transactions, interpret routes and stations, and analyze reading compatibility. The specific information depends on the card system and the data actually returned by the card:</p>
@@ -155,34 +163,14 @@
       <p>If you have questions about TrafArch’s processing of personal information or need to submit a user rights request, contact kajolno / the TrafArch project maintainers through the in-app “Feedback” option or the <a href="https://trafarch.feishu.cn/share/base/form/shrcniZ6QaPgqGazU1bpdmZyNPh" target="_blank" rel="noopener noreferrer">TrafArch feedback form</a>.</p>
       <p>We recommend specifying the request type, app version, and necessary background about the issue. The feedback form itself is hosted by a third-party service; review that service’s privacy notices first and submit only the information needed to handle your request. For data independently retained by third-party platforms, you also need to use their rights request channels.</p>
     </section>
-  </main>
-  <footer class="site-footer" aria-label="Site footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <nav class="footer-socials" aria-label="Project and community">
-          <a class="footer-social" href="https://github.com/TrafArch/TrafArch" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)" title="GitHub repository">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
-              <path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.09c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.5-.29-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.82 10.82 0 0 1 5.64 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.04.76 2.1v3.08c0 .3.2.65.77.54A11.25 11.25 0 0 0 12 .75Z"/>
-            </svg>
-          </a>
-          <a class="footer-social" href="https://qm.qq.com/q/QXYz3s3iI8" target="_blank" rel="noopener noreferrer" aria-label="QQ feedback group (opens in a new tab)" title="QQ feedback group">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <circle cx="9" cy="8" r="3.5"/>
-              <path d="M2.5 20v-2a4.5 4.5 0 0 1 4.5-4.5h4a4.5 4.5 0 0 1 4.5 4.5v2M16 4.6a3.5 3.5 0 0 1 0 6.8M18 13.7a4.5 4.5 0 0 1 3.5 4.3v2"/>
-            </svg>
-          </a>
-        </nav>
-      </div>
-
-      <div class="footer-meta">
-        <nav class="footer-links" aria-label="Footer navigation">
-          <a href="./">Back to home</a>
-        </nav>
-        <div class="footer-credits">
-          <p>© <span id="year">2026</span> TrafArch</p>
-        </div>
-      </div>
+      </article>
     </div>
+  </main>
+  <footer class="page-footer wrap">
+    <a class="brand" href="./"><img class="brand-icon" src="assets/app-icon.png" alt="" width="28" height="28"><span>TrafArch</span></a>
+    <p>Read your transit card. Keep your journeys.</p>
+    <nav aria-label="Footer navigation"><a href="./">Back to home</a><a href="https://qm.qq.com/q/QXYz3s3iI8" target="_blank" rel="noopener noreferrer">Feedback group</a><a href="https://github.com/TrafArch/TrafArch" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
+    <span>© <span id="year">2026</span> TrafArch</span>
   </footer>
 </body>
 </html>
